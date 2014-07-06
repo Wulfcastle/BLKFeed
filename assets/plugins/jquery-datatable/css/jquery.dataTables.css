@@ -48,8 +48,8 @@ table.table thead .sorting_desc_disabled {
 }
 
 table.table thead .sorting { }
-table.table thead .sorting_asc { background: url('../images/sort_asc.png') no-repeat center right; color:#22262E; }
-table.table thead .sorting_desc { background: url('../images/sort_desc.png') no-repeat center right;color:#22262E;  }
+table.table thead .sorting_asc { background: url('../images/sort_asc.png') no-repeat center right; }
+table.table thead .sorting_desc { background: url('../images/sort_desc.png') no-repeat center right;  }
 
 table.table thead .sorting_asc_disabled {}
 table.table thead .sorting_desc_disabled { }
@@ -59,11 +59,11 @@ table.dataTable th:active {
 }
 
 table.dataTable td.sorting_1 {
-		color: #22262E !important;
+		color: #d7ad5e !important;
 }
 
 table.dataTable td.sorting_1 .muted{
-		color: #22262E !important;
+		color: #d7ad5e !important;
 }
 
 /* Scrolling */
