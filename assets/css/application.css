@@ -1,0 +1,3804 @@
+* {
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    -ms-background-clip: padding-box;
+    -o-background-clip: padding-box;
+}
+                                                                                                                                                                 /*!
+* Ladda
+* http: //lab.hakim.se/ladda
+* MIT licensed
+*
+* Copyright (C) 2013 Hakim El Hattab,  http://hakim.se
+*/.ladda-button {
+    position: relative;
+}
+.ladda-button .ladda-spinner {
+    position: absolute;
+    z-index: 2;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    top: 50%;
+    margin-top: -16px;
+    opacity: 0;
+    pointer-events: none;
+}
+.ladda-button .ladda-label {
+    position: relative;
+    z-index: 3;
+}
+.ladda-button .ladda-progress {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.2);
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: 0.1s linear all !important;
+    -moz-transition: 0.1s linear all !important;
+    -ms-transition: 0.1s linear all !important;
+    -o-transition: 0.1s linear all !important;
+    transition: 0.1s linear all !important;
+}
+.ladda-button[data-loading] .ladda-progress {
+    opacity: 1;
+    visibility: visible;
+}
+.ladda-button, .ladda-button .ladda-spinner, .ladda-button .ladda-label {
+    -webkit-transition: 0.3s cubic-bezier(0.175,  0.885,  0.32,  1.275) all !important;
+    -moz-transition: 0.3s cubic-bezier(0.175,  0.885,  0.32,  1.275) all !important;
+    -ms-transition: 0.3s cubic-bezier(0.175,  0.885,  0.32,  1.275) all !important;
+    -o-transition: 0.3s cubic-bezier(0.175,  0.885,  0.32,  1.275) all !important;
+    transition: 0.3s cubic-bezier(0.175,  0.885,  0.32,  1.275) all !important;
+}
+.ladda-button[data-style=zoom-in], .ladda-button[data-style=zoom-in] .ladda-spinner, .ladda-button[data-style=zoom-in] .ladda-label, .ladda-button[data-style=zoom-out], .ladda-button[data-style=zoom-out] .ladda-spinner, .ladda-button[data-style=zoom-out] .ladda-label {
+    -webkit-transition: 0.3s ease all !important;
+    -moz-transition: 0.3s ease all !important;
+    -ms-transition: 0.3s ease all !important;
+    -o-transition: 0.3s ease all !important;
+    transition: 0.3s ease all !important;
+}
+.ladda-button[data-style=expand-right] .ladda-spinner {
+    right: 14px;
+}
+.ladda-button[data-style=expand-right][data-size="s"] .ladda-spinner, .ladda-button[data-style=expand-right][data-size="xs"] .ladda-spinner {
+    right: 4px;
+}
+.ladda-button[data-style=expand-right][data-loading] {
+    padding-right: 56px;
+}
+.ladda-button[data-style=expand-right][data-loading] .ladda-spinner {
+    opacity: 1;
+}
+.ladda-button[data-style=expand-right][data-loading][data-size="s"], .ladda-button[data-style=expand-right][data-loading][data-size="xs"] {
+    padding-right: 40px;
+}
+.ladda-button[data-style=expand-left] .ladda-spinner {
+    left: 14px;
+}
+.ladda-button[data-style=expand-left][data-size="s"] .ladda-spinner, .ladda-button[data-style=expand-left][data-size="xs"] .ladda-spinner {
+    left: 4px;
+}
+.ladda-button[data-style=expand-left][data-loading] {
+    padding-left: 56px;
+}
+.ladda-button[data-style=expand-left][data-loading] .ladda-spinner {
+    opacity: 1;
+}
+.ladda-button[data-style=expand-left][data-loading][data-size="s"], .ladda-button[data-style=expand-left][data-loading][data-size="xs"] {
+    padding-left: 40px;
+}
+.ladda-button[data-style=expand-up] {
+    overflow: hidden;
+}
+.ladda-button[data-style=expand-up] .ladda-spinner {
+    top: -32px;
+    left: 50%;
+    margin-left: -16px;
+}
+.ladda-button[data-style=expand-up][data-loading] {
+    padding-top: 54px;
+}
+.ladda-button[data-style=expand-up][data-loading] .ladda-spinner {
+    opacity: 1;
+    top: 14px;
+    margin-top: 0;
+}
+.ladda-button[data-style=expand-up][data-loading][data-size="s"], .ladda-button[data-style=expand-up][data-loading][data-size="xs"] {
+    padding-top: 32px;
+}
+.ladda-button[data-style=expand-up][data-loading][data-size="s"] .ladda-spinner, .ladda-button[data-style=expand-up][data-loading][data-size="xs"] .ladda-spinner {
+    top: 4px;
+}
+.ladda-button[data-style=expand-down] {
+    overflow: hidden;
+}
+.ladda-button[data-style=expand-down] .ladda-spinner {
+    top: 62px;
+    left: 50%;
+    margin-left: -16px;
+}
+.ladda-button[data-style=expand-down][data-size="s"] .ladda-spinner, .ladda-button[data-style=expand-down][data-size="xs"] .ladda-spinner {
+    top: 40px;
+}
+.ladda-button[data-style=expand-down][data-loading] {
+    padding-bottom: 54px;
+}
+.ladda-button[data-style=expand-down][data-loading] .ladda-spinner {
+    opacity: 1;
+}
+.ladda-button[data-style=expand-down][data-loading][data-size="s"], .ladda-button[data-style=expand-down][data-loading][data-size="xs"] {
+    padding-bottom: 32px;
+}
+.ladda-button[data-style=slide-left] {
+    overflow: hidden;
+}
+.ladda-button[data-style=slide-left] .ladda-label {
+    position: relative;
+}
+.ladda-button[data-style=slide-left] .ladda-spinner {
+    left: 100%;
+    margin-left: -16px;
+}
+.ladda-button[data-style=slide-left][data-loading] .ladda-label {
+    opacity: 0;
+    left: -100%}
+.ladda-button[data-style=slide-left][data-loading] .ladda-spinner {
+    opacity: 1;
+    left: 50%}
+.ladda-button[data-style=slide-right] {
+    overflow: hidden;
+}
+.ladda-button[data-style=slide-right] .ladda-label {
+    position: relative;
+}
+.ladda-button[data-style=slide-right] .ladda-spinner {
+    right: 100%;
+    margin-left: -16px;
+}
+.ladda-button[data-style=slide-right][data-loading] .ladda-label {
+    opacity: 0;
+    left: 100%}
+.ladda-button[data-style=slide-right][data-loading] .ladda-spinner {
+    opacity: 1;
+    left: 50%}
+.ladda-button[data-style=slide-up] {
+    overflow: hidden;
+}
+.ladda-button[data-style=slide-up] .ladda-label {
+    position: relative;
+}
+.ladda-button[data-style=slide-up] .ladda-spinner {
+    left: 50%;
+    margin-left: -16px;
+    margin-top: 1em;
+}
+.ladda-button[data-style=slide-up][data-loading] .ladda-label {
+    opacity: 0;
+    top: -1em;
+}
+.ladda-button[data-style=slide-up][data-loading] .ladda-spinner {
+    opacity: 1;
+    margin-top: -16px;
+}
+.ladda-button[data-style=slide-down] {
+    overflow: hidden;
+}
+.ladda-button[data-style=slide-down] .ladda-label {
+    position: relative;
+}
+.ladda-button[data-style=slide-down] .ladda-spinner {
+    left: 50%;
+    margin-left: -16px;
+    margin-top: -2em;
+}
+.ladda-button[data-style=slide-down][data-loading] .ladda-label {
+    opacity: 0;
+    top: 1em;
+}
+.ladda-button[data-style=slide-down][data-loading] .ladda-spinner {
+    opacity: 1;
+    margin-top: -16px;
+}
+.ladda-button[data-style=zoom-out] {
+    overflow: hidden;
+}
+.ladda-button[data-style=zoom-out] .ladda-spinner {
+    left: 50%;
+    margin-left: -16px;
+    -webkit-transform: scale(2.5);
+    -moz-transform: scale(2.5);
+    -ms-transform: scale(2.5);
+    -o-transform: scale(2.5);
+    transform: scale(2.5);
+}
+.ladda-button[data-style=zoom-out] .ladda-label {
+    position: relative;
+    display: inline-block;
+}
+.ladda-button[data-style=zoom-out][data-loading] .ladda-label {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    transform: scale(0.5);
+}
+.ladda-button[data-style=zoom-out][data-loading] .ladda-spinner {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+}
+.ladda-button[data-style=zoom-in] {
+    overflow: hidden;
+}
+.ladda-button[data-style=zoom-in] .ladda-spinner {
+    left: 50%;
+    margin-left: -16px;
+    -webkit-transform: scale(0.2);
+    -moz-transform: scale(0.2);
+    -ms-transform: scale(0.2);
+    -o-transform: scale(0.2);
+    transform: scale(0.2);
+}
+.ladda-button[data-style=zoom-in] .ladda-label {
+    position: relative;
+    display: inline-block;
+}
+.ladda-button[data-style=zoom-in][data-loading] .ladda-label {
+    opacity: 0;
+    -webkit-transform: scale(2.2);
+    -moz-transform: scale(2.2);
+    -ms-transform: scale(2.2);
+    -o-transform: scale(2.2);
+    transform: scale(2.2);
+}
+.ladda-button[data-style=zoom-in][data-loading] .ladda-spinner {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+}
+.ladda-button[data-style=contract] {
+    overflow: hidden;
+    width: 100px;
+}
+.ladda-button[data-style=contract] .ladda-spinner {
+    left: 50%;
+    margin-left: -16px;
+}
+.ladda-button[data-style=contract][data-loading] {
+    border-radius: 50%;
+    width: 52px;
+}
+.ladda-button[data-style=contract][data-loading] .ladda-label {
+    opacity: 0;
+}
+.ladda-button[data-style=contract][data-loading] .ladda-spinner {
+    opacity: 1;
+}
+.ladda-button[data-style=contract-overlay] {
+    overflow: hidden;
+    width: 100px;
+    box-shadow: 0px 0px 0px 3000px rgba(0, 0, 0, 0);
+}
+.ladda-button[data-style=contract-overlay] .ladda-spinner {
+    left: 50%;
+    margin-left: -16px;
+}
+.ladda-button[data-style=contract-overlay][data-loading] {
+    border-radius: 50%;
+    width: 52px;
+    box-shadow: 0px 0px 0px 3000px rgba(0, 0, 0, 0.8);
+}
+.ladda-button[data-style=contract-overlay][data-loading] .ladda-label {
+    opacity: 0;
+}
+.ladda-button[data-style=contract-overlay][data-loading] .ladda-spinner {
+    opacity: 1;
+}
+.post .post-container .community-form footer {
+    margin-top: 1em;
+    background: white;
+    border: 0;
+    padding: 0;
+    text-align: right;
+}
+.post .post-container .community-form footer .cancel {
+    color: #d4d4d4;
+    font-weight: 600;
+    margin-right: 10px;
+    position: relative;
+    top: 2px;
+}
+.post .post-container .community-form footer .cancel:hover {
+    color: #a1a1a1;
+}
+body.community.marketing #sign-in-modal #sign-up-modal-form {
+    margin-top: 10px;
+}
+body.community.marketing #sign-in-modal #sign-up-modal-form .control-group {
+    margin-bottom: 10px;
+}
+body.community.marketing #sign-in-modal #sign-up-modal-form .btn.orange.large {
+    margin-top: 10px;
+}
+.animated {
+    -webkit-animation-duration: 1.5s;
+    -moz-animation-duration: 1.5s;
+    -o-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+@-webkit-keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+}
+}@-moz-keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    -moz-transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+}
+}@-o-keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    -o-transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    -o-transform: translateY(0);
+}
+}@keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    transform: translateY(0);
+}
+}.animated.fadeIn {
+    -webkit-animation-name: fadeIn;
+    -moz-animation-name: fadeIn;
+    -o-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+@-webkit-keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+}
+}@-moz-keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    -moz-transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+}
+}@-o-keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    -o-transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    -o-transform: translateY(0);
+}
+}@keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    transform: translateY(0);
+}
+}* {
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    -ms-background-clip: padding-box;
+    -o-background-clip: padding-box;
+}
+.no-box-shadow, body.community.marketing.post .post-container footer, body.community.marketing .post-container section.comment>footer {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.global.loggedin {
+    top: 100px;
+}
+.intro.marketing .box:first-child {
+    margin-top: 100px !important;
+}
+body.community.marketing span.number {
+    width: 40px;
+}
+body.community.marketing.post .post-container:last-child {
+    margin-bottom: 0;
+}
+body.community.marketing .comments-container {
+    margin-bottom: 0;
+}
+body.community.marketing .comment-content blockquote {
+    margin-left: 1em;
+}
+body.community.marketing .comment-content blockquote p {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: proxima-nova;
+    font-weight: 400;
+}
+body.community.marketing form.new_comment {
+    margin-bottom: 0;
+}
+body.community.marketing .btn.btn-primary {
+    color: #454343;
+    font-size: 13px;
+    font-weight: 600;
+    text-shadow: 0 1px 0 #fff;
+}
+body.community.marketing .btn.btn-primary:hover, body.community.marketing .btn.btn-primary:focus, body.community.marketing .btn.btn-primary:active {
+    color: #454343;
+    text-shadow: 0 1px 0 #fff;
+}
+body.community.marketing .post-container section.comment>footer .cancel {
+    color: #929292;
+}
+body.community.marketing .post-container section.comment>footer .cancel:hover {
+    color: #787878;
+}
+body.community.marketing .community-wrapper {
+    max-width: 1400px;
+}
+body.community.marketing .breadcrumbs {
+    position: relative;
+    top: 9px;
+    margin-bottom: 40px;
+}
+body.community.marketing #sign-in-modal h3 {
+    padding: 10px 0;
+}
+body.community.marketing #sign-in-modal .close {
+    font-size: 40px;
+    line-height: 49px;
+}
+body.community.marketing #sign-in-modal form {
+    margin: 20px 0;
+}
+body.community.marketing #sign-in-modal .modal-form-footer a {
+    display: inline-block;
+    margin-top: 7px;
+}
+body.community.marketing #sign-in-modal label.error {
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+body.community.marketing #sign-in-modal .forgot-password {
+    float: right;
+    font-size: 12px;
+    margin-top: 3px;
+}
+body.community.marketing .articles-search form {
+    margin-bottom: 0;
+}
+body.community.marketing .login-signup-footer {
+    background: #DDDDDD;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 20px 0;
+    text-align: center;
+    margin: 0 auto 50px;
+}
+body.community.marketing .login-signup-footer a {
+    font-weight: 600;
+}
+body {
+    -webkit-backface-visibility: hidden;
+    transition: all .2s linear;
+    -o-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -webkit-transition: all .2s linear;
+}
+.community code[class*="language-"], .community pre[class*="language-"] {
+    text-shadow: none;
+}
+textarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 2px #ddd solid;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    width: 100%;
+    font-size: 16px;
+    line-height: 24px;
+    box-shadow: none;
+}
+textarea:focus {
+    border-color: #c2c2c2;
+}
+img.emoji {
+    vertical-align: top;
+}
+input[type=file] {
+    vertical-align: middle;
+    line-height: inherit;
+    height: auto;
+}
+div.center {
+    text-align: center;
+}
+.content-container {
+    margin-top: 40px;
+}
+body.logged-out .content-container {
+    margin-top: 0;
+}
+.community-wrapper {
+    margin: 0 auto;
+    max-width: 80%}
+.community-wrapper a {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.community .btn, .community select {
+    outline: none;
+}
+.community .author-only, .community span[data-author-id] {
+    display: none;
+}
+.community .note {
+    font-size: 11px;
+    margin-bottom: 6px;
+}
+.community .note code {
+    font-size: 9px;
+}
+h2 {
+    font-size: 24px;
+    line-height: 36px;
+}
+h3 {
+    font-size: 18px;
+    line-height: 36px;
+}
+p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #818f98;
+}
+a {
+    color: #2e8bcc;
+}
+code {
+    font-size: 13px;
+}
+.pager {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    color: #797c8c;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 24px;
+    margin: 10px auto 20px auto;
+    padding: 6px 20px;
+    text-align: center;
+    width: 150px;
+}
+.pager[disabled] {
+    opacity: 0.6;
+    background-color: #ddd;
+    cursor: auto;
+}
+.community aside.sidebar {
+    min-width: 210px;
+}
+.community aside.sidebar a.active {
+    color: #fff !important;
+}
+.community aside.sidebar .topic {
+    color: #9c9595 !important;
+}
+.community aside.sidebar .topic:hover {
+    color: #fff !important;
+}
+.community #main-container>.sidebar {
+    position: relative;
+    z-index: 3;
+}
+.community #main-container>.sidebar+div.content#main-content {
+    width: auto;
+    float: none;
+}
+.community .pagination {
+    float: right;
+}
+.community .box footer {
+    text-align: right;
+    background-color: #fff;
+    padding: 0 30px 20px 30px;
+    width: 100%;
+    -webkit-border-radius: 0 0 3px 3px;
+    -moz-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
+    position: relative;
+}
+.community .box footer a.cancel {
+    color: #b8b8b8;
+    font-weight: 600;
+    margin-right: 10px;
+    position: relative;
+    top: 2px;
+}
+.community .box footer a.cancel:hover {
+    color: #858585;
+}
+.community .filters .community-wrapper {
+    padding-left: 20px;
+    position: relative;
+}
+.community .filters .white-select {
+    border: 1px solid #ccc;
+    box-shadow: none;
+}
+.community .filters .community-wrapper>ul {
+    padding: 40px 0 0 0;
+    margin-bottom: 40px;
+    width: 100%;
+    border-bottom: 2px #d7ad5e solid;
+}
+.community .filters .community-wrapper>ul li {
+    display: inline-block;
+    padding-right: 45px;
+    padding-bottom: 6px;
+	padding-left: 0;
+	line-height: normal;
+}
+.community .filters .community-wrapper>ul li a {
+color:#c3c3c3;
+font-size: 12.5px;
+line-height: 24px;
+font-weight: bold;
+
+}
+.community .filters .community-wrapper>ul li a:hover, .community .filters .community-wrapper>ul li a:active {
+    color: #fff;
+}
+.community .filters .community-wrapper>ul li a.active {
+    color: #fff;
+    font-weight: 600;
+}
+.community .filters .community-wrapper>ul li.dropdown {
+    float: right;
+    padding-right: 3px;
+}
+.community .filters .white-select {
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+}
+.community .filters .white-select select {
+    padding: 0 15px;
+}
+.community .filters .white-select .arrows {
+    right: 15px;
+}
+.community .tab-wrapper textarea, .community .community-form textarea {
+    min-height: 350px;
+    padding: 20px;
+}
+.community .tab-wrapper input[type="text"], .community .community-form input[type="text"] {
+    height: 39px;
+    padding: 0 20px;
+    box-shadow: none;
+}
+.community .tab-wrapper input[type="text"]:focus, .community .community-form input[type="text"]:focus {
+    border-color: #c2c2c2 !important;
+}
+.community .tab-wrapper .white-select, .community .community-form .white-select {
+    border: 2px #ddd solid;
+    width: 100%;
+    padding: 2px 0;
+    margin-bottom: 20px;
+    box-shadow: none;
+}
+.community .tab-wrapper .white-select select, .community .community-form .white-select select {
+    padding-left: 20px;
+    width: 105%;
+    font-size: 16px;
+}
+.community .tab-wrapper .white-select select+.arrows, .community .community-form .white-select select+.arrows {
+    top: 6px;
+}
+.community .tab-wrapper .nav-tabs, .community .community-form .nav-tabs {
+    background-color: #f5f5f5;
+    border: 0;
+    margin-bottom: 0;
+    padding: 19px 0 0 30px;
+    font-size: 15px;
+    font-weight: 600;
+    -webkit-border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+}
+.community .tab-wrapper .nav-tabs>.active>a, .community .tab-wrapper .nav-tabs>.active>a:hover, .community .tab-wrapper .nav-tabs>.active>a:focus, .community .community-form .nav-tabs>.active>a, .community .community-form .nav-tabs>.active>a:hover, .community .community-form .nav-tabs>.active>a:focus {
+    color: #8d8e97 !important;
+    background-color: #fff !important;
+    border: 2px solid #ddd;
+    border-bottom: 2px solid #fff;
+    cursor: pointer;
+}
+.community .tab-wrapper .nav>li>a:hover, .community .tab-wrapper .nav>li>a:focus, .community .community-form .nav>li>a:hover, .community .community-form .nav>li>a:focus {
+    background-color: transparent;
+    color: #5E606D;
+}
+.community .tab-wrapper .nav-tabs>li, .community .community-form .nav-tabs>li {
+    margin-bottom: -2px;
+}
+.community .tab-wrapper .nav-tabs>li>a, .community .community-form .nav-tabs>li>a {
+    border: 2px solid transparent;
+    -webkit-border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+    padding: 9px 17px;
+    color: #8d8e97;
+}
+.community .tab-wrapper .tab-content, .community .community-form .tab-content {
+    padding: 30px 30px 10px 30px;
+    background-color: #fff;
+    border-top: 2px #ddd solid;
+}
+.community .tab-wrapper .tab-content input[type="text"], .community .community-form .tab-content input[type="text"] {
+    border-width: 2px;
+    border-color: #ddd;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 16px;
+}
+.community .tab-wrapper .tab-content input::-webkit-input-placeholder, .community .tab-wrapper .tab-content textarea::-webkit-input-placeholder, .community .community-form .tab-content input::-webkit-input-placeholder, .community .community-form .tab-content textarea::-webkit-input-placeholder {
+    font-weight: 400;
+}
+.community .tab-wrapper .tab-content input:-moz-placeholder, .community .tab-wrapper .tab-content textarea:-moz-placeholder, .community .community-form .tab-content input:-moz-placeholder, .community .community-form .tab-content textarea:-moz-placeholder {
+    font-weight: 400;
+}
+.community .tab-wrapper .tab-content .field_error, .community .community-form .tab-content .field_error {
+    color: #ce9797;
+}
+.community .tab-wrapper .tab-content input.error, .community .tab-wrapper .tab-content input.error:focus, .community .tab-wrapper .tab-content textarea.error, .community .tab-wrapper .tab-content textarea.error:focus, .community .community-form .tab-content input.error, .community .community-form .tab-content input.error:focus, .community .community-form .tab-content textarea.error, .community .community-form .tab-content textarea.error:focus {
+    border-color: #ce9797 !important;
+}
+.community .tab-wrapper .tab-content .field_with_errors input, .community .tab-wrapper .tab-content .field_with_errors textarea, .community .community-form .tab-content .field_with_errors input, .community .community-form .tab-content .field_with_errors textarea {
+    border-color: #ce9797;
+}
+.community .tab-wrapper .tab-content .markdown-title, .community .community-form .tab-content .markdown-title {
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 300;
+    margin: 0 0 15px 0;
+}
+.community .tab-wrapper .tab-content .markdown-preview ul, .community .tab-wrapper .tab-content .markdown-preview ol, .community .community-form .tab-content .markdown-preview ul, .community .community-form .tab-content .markdown-preview ol {
+    margin: 20px 0;
+}
+.community .tab-wrapper .tab-content .markdown-preview ul li, .community .tab-wrapper .tab-content .markdown-preview ol li, .community .community-form .tab-content .markdown-preview ul li, .community .community-form .tab-content .markdown-preview ol li {
+    color: #818f98;
+    font-size: 16px;
+    line-height: 24px;
+}
+.community .tab-wrapper .tab-content .markdown-preview blockquote p, .community .community-form .tab-content .markdown-preview blockquote p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+.learning_center header.box {
+    background-color: #72a4ae;
+    margin-top: 25px;
+}
+.learning_center .box {
+    background-color: #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+.learning_center .box ~ .box {
+    margin-top: 0;
+}
+.learning_center .community-wrapper .sorter {
+    border-bottom: 1px #ddd solid;
+    padding: 18px 0;
+    margin-bottom: 40px;
+    position: relative;
+    top: 5px;
+}
+.learning_center .community-wrapper .sorter ul li {
+    max-width: 768px;
+    margin: 0 auto;
+}
+.learning_center.show .wiki-toc ul.affix, .learning_center.edit .wiki-toc ul.affix, .learning_center.new .wiki-toc ul.affix, .discussions.new .wiki-toc ul.affix, .discussions.edit .wiki-toc ul.affix, .discussions.post .wiki-toc ul.affix, .code-questions.new .wiki-toc ul.affix, .code-questions.edit .wiki-toc ul.affix, .code-questions.post .wiki-toc ul.affix {
+    top: 54px;
+}
+.learning_center.show .post-container header, .learning_center.show header#top, .learning_center.edit .post-container header, .learning_center.edit header#top, .learning_center.new .post-container header, .discussions.new .post-container header, .discussions.edit .post-container header, .discussions.post .post-container header, .code-questions.new .post-container header, .code-questions.edit .post-container header, .code-questions.post .post-container header, .learning_center.new header#top, .discussions.new header#top, .discussions.edit header#top, .discussions.post header#top, .code-questions.new header#top, .code-questions.edit header#top, .code-questions.post header#top {
+    overflow: auto;
+    padding: 11px 0 11px 30px;
+    background-color: #71a3ad;
+    -webkit-box-shadow: 0 1px 0 #fff;
+    -moz-box-shadow: 0 1px 0 #fff;
+    box-shadow: 0 1px 0 #fff;
+    -webkit-border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+    position: static;
+    height: 52px;
+    overflow: hidden;
+}
+.learning_center.show .post-container header strong, .learning_center.show .post-container header a, .learning_center.show header#top strong, .learning_center.show header#top a, .learning_center.edit .post-container header strong, .learning_center.edit .post-container header a, .learning_center.edit header#top strong, .learning_center.edit header#top a, .learning_center.new .post-container header strong, .discussions.new .post-container header strong, .discussions.edit .post-container header strong, .discussions.post .post-container header strong, .code-questions.new .post-container header strong, .code-questions.edit .post-container header strong, .code-questions.post .post-container header strong, .learning_center.new .post-container header a, .discussions.new .post-container header a, .discussions.edit .post-container header a, .discussions.post .post-container header a, .code-questions.new .post-container header a, .code-questions.edit .post-container header a, .code-questions.post .post-container header a, .learning_center.new header#top strong, .discussions.new header#top strong, .discussions.edit header#top strong, .discussions.post header#top strong, .code-questions.new header#top strong, .code-questions.edit header#top strong, .code-questions.post header#top strong, .learning_center.new header#top a, .discussions.new header#top a, .discussions.edit header#top a, .discussions.post header#top a, .code-questions.new header#top a, .code-questions.edit header#top a, .code-questions.post header#top a {
+    float: left;
+    color: #fff;
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 600;
+}
+.learning_center.show .post-container header a:hover .icon, .learning_center.show header#top a:hover .icon, .learning_center.edit .post-container header a:hover .icon, .learning_center.edit header#top a:hover .icon, .learning_center.new .post-container header a:hover .icon, .discussions.new .post-container header a:hover .icon, .discussions.edit .post-container header a:hover .icon, .discussions.post .post-container header a:hover .icon, .code-questions.new .post-container header a:hover .icon, .code-questions.edit .post-container header a:hover .icon, .code-questions.post .post-container header a:hover .icon, .learning_center.new header#top a:hover .icon, .discussions.new header#top a:hover .icon, .discussions.edit header#top a:hover .icon, .discussions.post header#top a:hover .icon, .code-questions.new header#top a:hover .icon, .code-questions.edit header#top a:hover .icon, .code-questions.post header#top a:hover .icon {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    right: 3px;
+}
+.learning_center.show .post-container header a .icon, .learning_center.show header#top a .icon, .learning_center.edit .post-container header a .icon, .learning_center.edit header#top a .icon, .learning_center.new .post-container header a .icon, .discussions.new .post-container header a .icon, .discussions.edit .post-container header a .icon, .discussions.post .post-container header a .icon, .code-questions.new .post-container header a .icon, .code-questions.edit .post-container header a .icon, .code-questions.post .post-container header a .icon, .learning_center.new header#top a .icon, .discussions.new header#top a .icon, .discussions.edit header#top a .icon, .discussions.post header#top a .icon, .code-questions.new header#top a .icon, .code-questions.edit header#top a .icon, .code-questions.post header#top a .icon {
+    font-size: 12px;
+    padding-right: 10px;
+}
+.learning_center.show .post-container header .btn, .learning_center.show header#top .btn, .learning_center.edit .post-container header .btn, .learning_center.edit header#top .btn, .learning_center.new .post-container header .btn, .discussions.new .post-container header .btn, .discussions.edit .post-container header .btn, .discussions.post .post-container header .btn, .code-questions.new .post-container header .btn, .code-questions.edit .post-container header .btn, .code-questions.post .post-container header .btn, .learning_center.new header#top .btn, .discussions.new header#top .btn, .discussions.edit header#top .btn, .discussions.post header#top .btn, .code-questions.new header#top .btn, .code-questions.edit header#top .btn, .code-questions.post header#top .btn {
+    float: right;
+    font-size: 13px;
+    line-height: 20px;
+    color: #454343;
+}
+.learning_center.show table, .learning_center.edit table, .learning_center.new table, .discussions.new table, .discussions.edit table, .discussions.post table, .code-questions.new table, .code-questions.edit table, .code-questions.post table {
+    border-collapse: separate;
+    border: solid #71a3ad 5px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    width: 100%;
+    background-color: #71a3ad;
+    margin: 20px 0;
+    font-size: 14px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.learning_center.show table tr:hover td, .learning_center.show table tr:hover td a, .learning_center.edit table tr:hover td, .learning_center.edit table tr:hover td a, .learning_center.new table tr:hover td, .discussions.new table tr:hover td, .discussions.edit table tr:hover td, .discussions.post table tr:hover td, .code-questions.new table tr:hover td, .code-questions.edit table tr:hover td, .code-questions.post table tr:hover td, .learning_center.new table tr:hover td a, .discussions.new table tr:hover td a, .discussions.edit table tr:hover td a, .discussions.post table tr:hover td a, .code-questions.new table tr:hover td a, .code-questions.edit table tr:hover td a, .code-questions.post table tr:hover td a {
+    color: #000;
+}
+.learning_center.show table tr:hover td, .learning_center.edit table tr:hover td, .learning_center.new table tr:hover td, .discussions.new table tr:hover td, .discussions.edit table tr:hover td, .discussions.post table tr:hover td, .code-questions.new table tr:hover td, .code-questions.edit table tr:hover td, .code-questions.post table tr:hover td {
+    background-color: #fcfcfc;
+}
+.learning_center.show table td, .learning_center.show table th, .learning_center.edit table td, .learning_center.edit table th, .learning_center.new table td, .discussions.new table td, .discussions.edit table td, .discussions.post table td, .code-questions.new table td, .code-questions.edit table td, .code-questions.post table td, .learning_center.new table th, .discussions.new table th, .discussions.edit table th, .discussions.post table th, .code-questions.new table th, .code-questions.edit table th, .code-questions.post table th {
+    border-bottom: solid #eceff1 1px;
+    padding: 16px;
+    background-color: #fff;
+}
+.learning_center.show table td a, .learning_center.edit table td a, .learning_center.new table td a, .discussions.new table td a, .discussions.edit table td a, .discussions.post table td a, .code-questions.new table td a, .code-questions.edit table td a, .code-questions.post table td a {
+    color: #7e7e7e;
+}
+.learning_center.show table th, .learning_center.edit table th, .learning_center.new table th, .discussions.new table th, .discussions.edit table th, .discussions.post table th, .code-questions.new table th, .code-questions.edit table th, .code-questions.post table th {
+    color: #fff;
+    background-color: #71a3ad;
+    text-align: left;
+    padding: 8px 16px;
+    border-top: none;
+    border-bottom: none;
+    font-weight: 600;
+}
+.learning_center.show td:first-child, .learning_center.show th:first-child, .learning_center.edit td:first-child, .learning_center.edit th:first-child, .learning_center.new td:first-child, .discussions.new td:first-child, .discussions.edit td:first-child, .discussions.post td:first-child, .code-questions.new td:first-child, .code-questions.edit td:first-child, .code-questions.post td:first-child, .learning_center.new th:first-child, .discussions.new th:first-child, .discussions.edit th:first-child, .discussions.post th:first-child, .code-questions.new th:first-child, .code-questions.edit th:first-child, .code-questions.post th:first-child {
+    border-left: none;
+}
+.learning_center.show table tr:first-child td:first-child, .learning_center.edit table tr:first-child td:first-child, .learning_center.new table tr:first-child td:first-child, .discussions.new table tr:first-child td:first-child, .discussions.edit table tr:first-child td:first-child, .discussions.post table tr:first-child td:first-child, .code-questions.new table tr:first-child td:first-child, .code-questions.edit table tr:first-child td:first-child, .code-questions.post table tr:first-child td:first-child {
+    -moz-border-radius-topleft: 5px;
+    -webkit-border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.learning_center.show table tr:first-child td:last-child, .learning_center.edit table tr:first-child td:last-child, .learning_center.new table tr:first-child td:last-child, .discussions.new table tr:first-child td:last-child, .discussions.edit table tr:first-child td:last-child, .discussions.post table tr:first-child td:last-child, .code-questions.new table tr:first-child td:last-child, .code-questions.edit table tr:first-child td:last-child, .code-questions.post table tr:first-child td:last-child {
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.learning_center.show table tr:last-child td:first-child, .learning_center.edit table tr:last-child td:first-child, .learning_center.new table tr:last-child td:first-child, .discussions.new table tr:last-child td:first-child, .discussions.edit table tr:last-child td:first-child, .discussions.post table tr:last-child td:first-child, .code-questions.new table tr:last-child td:first-child, .code-questions.edit table tr:last-child td:first-child, .code-questions.post table tr:last-child td:first-child {
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.learning_center.show table tr:last-child td:last-child, .learning_center.edit table tr:last-child td:last-child, .learning_center.new table tr:last-child td:last-child, .discussions.new table tr:last-child td:last-child, .discussions.edit table tr:last-child td:last-child, .discussions.post table tr:last-child td:last-child, .code-questions.new table tr:last-child td:last-child, .code-questions.edit table tr:last-child td:last-child, .code-questions.post table tr:last-child td:last-child {
+    -moz-border-radius-bottomright: 5px;
+    -wbkit-border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.learning_center.show .wiki-wrapper, .learning_center.edit .wiki-wrapper, .learning_center.new .wiki-wrapper, .discussions.new .wiki-wrapper, .discussions.edit .wiki-wrapper, .discussions.post .wiki-wrapper, .code-questions.new .wiki-wrapper, .code-questions.edit .wiki-wrapper, .code-questions.post .wiki-wrapper {
+    overflow: auto;
+    padding: 60px;
+}
+.learning_center.show .wiki-wrapper nav, .learning_center.edit .wiki-wrapper nav, .learning_center.new .wiki-wrapper nav, .discussions.new .wiki-wrapper nav, .discussions.edit .wiki-wrapper nav, .discussions.post .wiki-wrapper nav, .code-questions.new .wiki-wrapper nav, .code-questions.edit .wiki-wrapper nav, .code-questions.post .wiki-wrapper nav {
+    display: inline-block;
+    margin-top: 95px;
+    float: left;
+    min-width: 200px;
+}
+.learning_center.show .wiki-wrapper nav ul li, .learning_center.edit .wiki-wrapper nav ul li, .learning_center.new .wiki-wrapper nav ul li, .discussions.new .wiki-wrapper nav ul li, .discussions.edit .wiki-wrapper nav ul li, .discussions.post .wiki-wrapper nav ul li, .code-questions.new .wiki-wrapper nav ul li, .code-questions.edit .wiki-wrapper nav ul li, .code-questions.post .wiki-wrapper nav ul li {
+    border-left: 1px solid #b8b8b8;
+    padding-left: 9px;
+    font-size: 15px;
+    line-height: 36px;
+    list-style-type: none;
+}
+.learning_center.show .wiki-wrapper nav ul li ul li, .learning_center.edit .wiki-wrapper nav ul li ul li, .learning_center.new .wiki-wrapper nav ul li ul li, .discussions.new .wiki-wrapper nav ul li ul li, .discussions.edit .wiki-wrapper nav ul li ul li, .discussions.post .wiki-wrapper nav ul li ul li, .code-questions.new .wiki-wrapper nav ul li ul li, .code-questions.edit .wiki-wrapper nav ul li ul li, .code-questions.post .wiki-wrapper nav ul li ul li {
+    padding-left: 0;
+    border-left: none;
+}
+.learning_center.show .wiki-wrapper nav ul li.active, .learning_center.edit .wiki-wrapper nav ul li.active, .learning_center.new .wiki-wrapper nav ul li.active, .discussions.new .wiki-wrapper nav ul li.active, .discussions.edit .wiki-wrapper nav ul li.active, .discussions.post .wiki-wrapper nav ul li.active, .code-questions.new .wiki-wrapper nav ul li.active, .code-questions.edit .wiki-wrapper nav ul li.active, .code-questions.post .wiki-wrapper nav ul li.active {
+    border-left: 3px solid #777777;
+    font-weight: 600;
+    padding-left: 7px;
+    color: #777777;
+}
+.learning_center.show .wiki-wrapper nav ul li.active a, .learning_center.edit .wiki-wrapper nav ul li.active a, .learning_center.new .wiki-wrapper nav ul li.active a, .discussions.new .wiki-wrapper nav ul li.active a, .discussions.edit .wiki-wrapper nav ul li.active a, .discussions.post .wiki-wrapper nav ul li.active a, .code-questions.new .wiki-wrapper nav ul li.active a, .code-questions.edit .wiki-wrapper nav ul li.active a, .code-questions.post .wiki-wrapper nav ul li.active a {
+    color: #777777;
+}
+.learning_center.show .wiki-wrapper nav ul li a, .learning_center.edit .wiki-wrapper nav ul li a, .learning_center.new .wiki-wrapper nav ul li a, .discussions.new .wiki-wrapper nav ul li a, .discussions.edit .wiki-wrapper nav ul li a, .discussions.post .wiki-wrapper nav ul li a, .code-questions.new .wiki-wrapper nav ul li a, .code-questions.edit .wiki-wrapper nav ul li a, .code-questions.post .wiki-wrapper nav ul li a {
+    color: #b8b8b8;
+}
+.learning_center.show .wiki-wrapper nav ul li a:hover, .learning_center.edit .wiki-wrapper nav ul li a:hover, .learning_center.new .wiki-wrapper nav ul li a:hover, .discussions.new .wiki-wrapper nav ul li a:hover, .discussions.edit .wiki-wrapper nav ul li a:hover, .discussions.post .wiki-wrapper nav ul li a:hover, .code-questions.new .wiki-wrapper nav ul li a:hover, .code-questions.edit .wiki-wrapper nav ul li a:hover, .code-questions.post .wiki-wrapper nav ul li a:hover {
+    background-color: transparent;
+    text-decoration: underline;
+    color: #777777;
+}
+.learning_center.show .wiki-wrapper nav ul li a:focus, .learning_center.edit .wiki-wrapper nav ul li a:focus, .learning_center.new .wiki-wrapper nav ul li a:focus, .discussions.new .wiki-wrapper nav ul li a:focus, .discussions.edit .wiki-wrapper nav ul li a:focus, .discussions.post .wiki-wrapper nav ul li a:focus, .code-questions.new .wiki-wrapper nav ul li a:focus, .code-questions.edit .wiki-wrapper nav ul li a:focus, .code-questions.post .wiki-wrapper nav ul li a:focus {
+    background-color: transparent;
+}
+.learning_center.show .wiki-wrapper nav ul li a:before, .learning_center.edit .wiki-wrapper nav ul li a:before, .learning_center.new .wiki-wrapper nav ul li a:before, .discussions.new .wiki-wrapper nav ul li a:before, .discussions.edit .wiki-wrapper nav ul li a:before, .discussions.post .wiki-wrapper nav ul li a:before, .code-questions.new .wiki-wrapper nav ul li a:before, .code-questions.edit .wiki-wrapper nav ul li a:before, .code-questions.post .wiki-wrapper nav ul li a:before {
+    font-family: 'icomoon';
+    margin-right: 8px;
+}
+.learning_center.show .wiki-wrapper .article-container, .learning_center.edit .wiki-wrapper .article-container, .learning_center.new .wiki-wrapper .article-container, .discussions.new .wiki-wrapper .article-container, .discussions.edit .wiki-wrapper .article-container, .discussions.post .wiki-wrapper .article-container, .code-questions.new .wiki-wrapper .article-container, .code-questions.edit .wiki-wrapper .article-container, .code-questions.post .wiki-wrapper .article-container {
+    overflow: hidden;
+    padding: 0 60px 200px;
+}
+.learning_center.show .wiki-wrapper .article-container article, .learning_center.edit .wiki-wrapper .article-container article, .learning_center.new .wiki-wrapper .article-container article, .discussions.new .wiki-wrapper .article-container article, .discussions.edit .wiki-wrapper .article-container article, .discussions.post .wiki-wrapper .article-container article, .code-questions.new .wiki-wrapper .article-container article, .code-questions.edit .wiki-wrapper .article-container article, .code-questions.post .wiki-wrapper .article-container article {
+    margin-bottom: 20px;
+}
+.learning_center.show .wiki-wrapper .article-container article header, .learning_center.edit .wiki-wrapper .article-container article header, .learning_center.new .wiki-wrapper .article-container article header, .discussions.new .wiki-wrapper .article-container article header, .discussions.edit .wiki-wrapper .article-container article header, .discussions.post .wiki-wrapper .article-container article header, .code-questions.new .wiki-wrapper .article-container article header, .code-questions.edit .wiki-wrapper .article-container article header, .code-questions.post .wiki-wrapper .article-container article header {
+    padding: 5px 30px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+.learning_center.show .wiki-wrapper .article-container article .lead, .learning_center.edit .wiki-wrapper .article-container article .lead, .learning_center.new .wiki-wrapper .article-container article .lead, .discussions.new .wiki-wrapper .article-container article .lead, .discussions.edit .wiki-wrapper .article-container article .lead, .discussions.post .wiki-wrapper .article-container article .lead, .code-questions.new .wiki-wrapper .article-container article .lead, .code-questions.edit .wiki-wrapper .article-container article .lead, .code-questions.post .wiki-wrapper .article-container article .lead {
+    font-size: 19px;
+    line-height: 26px;
+    font-weight: 100;
+}
+.learning_center.show .wiki-wrapper .article-container article h1, .learning_center.show .wiki-wrapper .article-container article h2, .learning_center.show .wiki-wrapper .article-container article h3, .learning_center.show .wiki-wrapper .article-container article h4, .learning_center.show .wiki-wrapper .article-container article h5, .learning_center.show .wiki-wrapper .article-container article h6, .learning_center.edit .wiki-wrapper .article-container article h1, .learning_center.edit .wiki-wrapper .article-container article h2, .learning_center.edit .wiki-wrapper .article-container article h3, .learning_center.edit .wiki-wrapper .article-container article h4, .learning_center.edit .wiki-wrapper .article-container article h5, .learning_center.edit .wiki-wrapper .article-container article h6, .learning_center.new .wiki-wrapper .article-container article h1, .discussions.new .wiki-wrapper .article-container article h1, .discussions.edit .wiki-wrapper .article-container article h1, .discussions.post .wiki-wrapper .article-container article h1, .code-questions.new .wiki-wrapper .article-container article h1, .code-questions.edit .wiki-wrapper .article-container article h1, .code-questions.post .wiki-wrapper .article-container article h1, .learning_center.new .wiki-wrapper .article-container article h2, .discussions.new .wiki-wrapper .article-container article h2, .discussions.edit .wiki-wrapper .article-container article h2, .discussions.post .wiki-wrapper .article-container article h2, .code-questions.new .wiki-wrapper .article-container article h2, .code-questions.edit .wiki-wrapper .article-container article h2, .code-questions.post .wiki-wrapper .article-container article h2, .learning_center.new .wiki-wrapper .article-container article h3, .discussions.new .wiki-wrapper .article-container article h3, .discussions.edit .wiki-wrapper .article-container article h3, .discussions.post .wiki-wrapper .article-container article h3, .code-questions.new .wiki-wrapper .article-container article h3, .code-questions.edit .wiki-wrapper .article-container article h3, .code-questions.post .wiki-wrapper .article-container article h3, .learning_center.new .wiki-wrapper .article-container article h4, .discussions.new .wiki-wrapper .article-container article h4, .discussions.edit .wiki-wrapper .article-container article h4, .discussions.post .wiki-wrapper .article-container article h4, .code-questions.new .wiki-wrapper .article-container article h4, .code-questions.edit .wiki-wrapper .article-container article h4, .code-questions.post .wiki-wrapper .article-container article h4, .learning_center.new .wiki-wrapper .article-container article h5, .discussions.new .wiki-wrapper .article-container article h5, .discussions.edit .wiki-wrapper .article-container article h5, .discussions.post .wiki-wrapper .article-container article h5, .code-questions.new .wiki-wrapper .article-container article h5, .code-questions.edit .wiki-wrapper .article-container article h5, .code-questions.post .wiki-wrapper .article-container article h5, .learning_center.new .wiki-wrapper .article-container article h6, .discussions.new .wiki-wrapper .article-container article h6, .discussions.edit .wiki-wrapper .article-container article h6, .discussions.post .wiki-wrapper .article-container article h6, .code-questions.new .wiki-wrapper .article-container article h6, .code-questions.edit .wiki-wrapper .article-container article h6, .code-questions.post .wiki-wrapper .article-container article h6 {
+    line-height: normal;
+    color: #7B8891;
+    font-weight: 400;
+}
+.learning_center.show .wiki-wrapper .article-container article h1:first-child, .learning_center.edit .wiki-wrapper .article-container article h1:first-child, .learning_center.new .wiki-wrapper .article-container article h1:first-child, .discussions.new .wiki-wrapper .article-container article h1:first-child, .discussions.edit .wiki-wrapper .article-container article h1:first-child, .discussions.post .wiki-wrapper .article-container article h1:first-child, .code-questions.new .wiki-wrapper .article-container article h1:first-child, .code-questions.edit .wiki-wrapper .article-container article h1:first-child, .code-questions.post .wiki-wrapper .article-container article h1:first-child {
+    font-size: 32px;
+    padding-top: 10px;
+    margin-bottom: 0;
+}
+.learning_center.show .wiki-wrapper .article-container article h1, .learning_center.edit .wiki-wrapper .article-container article h1, .learning_center.new .wiki-wrapper .article-container article h1, .discussions.new .wiki-wrapper .article-container article h1, .discussions.edit .wiki-wrapper .article-container article h1, .discussions.post .wiki-wrapper .article-container article h1, .code-questions.new .wiki-wrapper .article-container article h1, .code-questions.edit .wiki-wrapper .article-container article h1, .code-questions.post .wiki-wrapper .article-container article h1 {
+    font-size: 22px;
+    line-height: 36px;
+    clear: both;
+    font-weight: 400;
+}
+.learning_center.show .wiki-wrapper .article-container article h2, .learning_center.edit .wiki-wrapper .article-container article h2, .learning_center.new .wiki-wrapper .article-container article h2, .discussions.new .wiki-wrapper .article-container article h2, .discussions.edit .wiki-wrapper .article-container article h2, .discussions.post .wiki-wrapper .article-container article h2, .code-questions.new .wiki-wrapper .article-container article h2, .code-questions.edit .wiki-wrapper .article-container article h2, .code-questions.post .wiki-wrapper .article-container article h2 {
+    font-size: 24px;
+}
+.learning_center.show .wiki-wrapper .article-container article h3, .learning_center.edit .wiki-wrapper .article-container article h3, .learning_center.new .wiki-wrapper .article-container article h3, .discussions.new .wiki-wrapper .article-container article h3, .discussions.edit .wiki-wrapper .article-container article h3, .discussions.post .wiki-wrapper .article-container article h3, .code-questions.new .wiki-wrapper .article-container article h3, .code-questions.edit .wiki-wrapper .article-container article h3, .code-questions.post .wiki-wrapper .article-container article h3 {
+    font-size: 20px;
+}
+.learning_center.show .wiki-wrapper .article-container article h4, .learning_center.edit .wiki-wrapper .article-container article h4, .learning_center.new .wiki-wrapper .article-container article h4, .discussions.new .wiki-wrapper .article-container article h4, .discussions.edit .wiki-wrapper .article-container article h4, .discussions.post .wiki-wrapper .article-container article h4, .code-questions.new .wiki-wrapper .article-container article h4, .code-questions.edit .wiki-wrapper .article-container article h4, .code-questions.post .wiki-wrapper .article-container article h4 {
+    font-size: 18px;
+}
+.learning_center.show .wiki-wrapper .article-container article h5, .learning_center.edit .wiki-wrapper .article-container article h5, .learning_center.new .wiki-wrapper .article-container article h5, .discussions.new .wiki-wrapper .article-container article h5, .discussions.edit .wiki-wrapper .article-container article h5, .discussions.post .wiki-wrapper .article-container article h5, .code-questions.new .wiki-wrapper .article-container article h5, .code-questions.edit .wiki-wrapper .article-container article h5, .code-questions.post .wiki-wrapper .article-container article h5 {
+    font-size: 16px;
+}
+.learning_center.show .wiki-wrapper .article-container article p, .learning_center.edit .wiki-wrapper .article-container article p, .learning_center.new .wiki-wrapper .article-container article p, .discussions.new .wiki-wrapper .article-container article p, .discussions.edit .wiki-wrapper .article-container article p, .discussions.post .wiki-wrapper .article-container article p, .code-questions.new .wiki-wrapper .article-container article p, .code-questions.edit .wiki-wrapper .article-container article p, .code-questions.post .wiki-wrapper .article-container article p {
+    margin-bottom: 1em;
+}
+.learning_center.show .wiki-wrapper .article-container article pre, .learning_center.edit .wiki-wrapper .article-container article pre, .learning_center.new .wiki-wrapper .article-container article pre, .discussions.new .wiki-wrapper .article-container article pre, .discussions.edit .wiki-wrapper .article-container article pre, .discussions.post .wiki-wrapper .article-container article pre, .code-questions.new .wiki-wrapper .article-container article pre, .code-questions.edit .wiki-wrapper .article-container article pre, .code-questions.post .wiki-wrapper .article-container article pre {
+    margin: 1.5em 0;
+}
+.learning_center.show .wiki-wrapper .article-container article hr, .learning_center.edit .wiki-wrapper .article-container article hr, .learning_center.new .wiki-wrapper .article-container article hr, .discussions.new .wiki-wrapper .article-container article hr, .discussions.edit .wiki-wrapper .article-container article hr, .discussions.post .wiki-wrapper .article-container article hr, .code-questions.new .wiki-wrapper .article-container article hr, .code-questions.edit .wiki-wrapper .article-container article hr, .code-questions.post .wiki-wrapper .article-container article hr {
+    margin: 40px 0;
+}
+.learning_center.show .wiki-wrapper .article-container article p:first-child, .learning_center.edit .wiki-wrapper .article-container article p:first-child, .learning_center.new .wiki-wrapper .article-container article p:first-child, .discussions.new .wiki-wrapper .article-container article p:first-child, .discussions.edit .wiki-wrapper .article-container article p:first-child, .discussions.post .wiki-wrapper .article-container article p:first-child, .code-questions.new .wiki-wrapper .article-container article p:first-child, .code-questions.edit .wiki-wrapper .article-container article p:first-child, .code-questions.post .wiki-wrapper .article-container article p:first-child {
+    margin-top: 16px;
+}
+.learning_center.show .wiki-wrapper .article-container article p:last-child, .learning_center.edit .wiki-wrapper .article-container article p:last-child, .learning_center.new .wiki-wrapper .article-container article p:last-child, .discussions.new .wiki-wrapper .article-container article p:last-child, .discussions.edit .wiki-wrapper .article-container article p:last-child, .discussions.post .wiki-wrapper .article-container article p:last-child, .code-questions.new .wiki-wrapper .article-container article p:last-child, .code-questions.edit .wiki-wrapper .article-container article p:last-child, .code-questions.post .wiki-wrapper .article-container article p:last-child {
+    margin-bottom: 0;
+}
+.learning_center.show .wiki-wrapper .article-container article ul, .learning_center.edit .wiki-wrapper .article-container article ul, .learning_center.new .wiki-wrapper .article-container article ul, .discussions.new .wiki-wrapper .article-container article ul, .discussions.edit .wiki-wrapper .article-container article ul, .discussions.post .wiki-wrapper .article-container article ul, .code-questions.new .wiki-wrapper .article-container article ul, .code-questions.edit .wiki-wrapper .article-container article ul, .code-questions.post .wiki-wrapper .article-container article ul {
+    margin-bottom: 1em;
+}
+.learning_center.show .wiki-wrapper .article-container article ul li, .learning_center.edit .wiki-wrapper .article-container article ul li, .learning_center.new .wiki-wrapper .article-container article ul li, .discussions.new .wiki-wrapper .article-container article ul li, .discussions.edit .wiki-wrapper .article-container article ul li, .discussions.post .wiki-wrapper .article-container article ul li, .code-questions.new .wiki-wrapper .article-container article ul li, .code-questions.edit .wiki-wrapper .article-container article ul li, .code-questions.post .wiki-wrapper .article-container article ul li {
+    list-style-type: disc;
+    font-size: 16px;
+    line-height: 24px;
+    color: #818f98;
+    margin-left: 40px;
+}
+.learning_center.show .wiki-wrapper .article-container article ul li ul li, .learning_center.edit .wiki-wrapper .article-container article ul li ul li, .learning_center.new .wiki-wrapper .article-container article ul li ul li, .discussions.new .wiki-wrapper .article-container article ul li ul li, .discussions.edit .wiki-wrapper .article-container article ul li ul li, .discussions.post .wiki-wrapper .article-container article ul li ul li, .code-questions.new .wiki-wrapper .article-container article ul li ul li, .code-questions.edit .wiki-wrapper .article-container article ul li ul li, .code-questions.post .wiki-wrapper .article-container article ul li ul li {
+    list-style-type: circle;
+}
+.learning_center.show .wiki-wrapper .article-container article code, .learning_center.edit .wiki-wrapper .article-container article code, .learning_center.new .wiki-wrapper .article-container article code, .discussions.new .wiki-wrapper .article-container article code, .discussions.edit .wiki-wrapper .article-container article code, .discussions.post .wiki-wrapper .article-container article code, .code-questions.new .wiki-wrapper .article-container article code, .code-questions.edit .wiki-wrapper .article-container article code, .code-questions.post .wiki-wrapper .article-container article code {
+    color: #3E95A7;
+}
+.learning_center.show .wiki-wrapper .article-container article blockquote, .learning_center.edit .wiki-wrapper .article-container article blockquote, .learning_center.new .wiki-wrapper .article-container article blockquote, .discussions.new .wiki-wrapper .article-container article blockquote, .discussions.edit .wiki-wrapper .article-container article blockquote, .discussions.post .wiki-wrapper .article-container article blockquote, .code-questions.new .wiki-wrapper .article-container article blockquote, .code-questions.edit .wiki-wrapper .article-container article blockquote, .code-questions.post .wiki-wrapper .article-container article blockquote {
+    margin-left: 10px;
+    border-left-width: 3px;
+}
+.learning_center.show .wiki-wrapper .article-container article blockquote p, .learning_center.edit .wiki-wrapper .article-container article blockquote p, .learning_center.new .wiki-wrapper .article-container article blockquote p, .discussions.new .wiki-wrapper .article-container article blockquote p, .discussions.edit .wiki-wrapper .article-container article blockquote p, .discussions.post .wiki-wrapper .article-container article blockquote p, .code-questions.new .wiki-wrapper .article-container article blockquote p, .code-questions.edit .wiki-wrapper .article-container article blockquote p, .code-questions.post .wiki-wrapper .article-container article blockquote p {
+    margin-bottom: 10px;
+}
+.learning_center.show .wiki-wrapper .article-container article article h1, .learning_center.edit .wiki-wrapper .article-container article article h1, .learning_center.new .wiki-wrapper .article-container article article h1, .discussions.new .wiki-wrapper .article-container article article h1, .discussions.edit .wiki-wrapper .article-container article article h1, .discussions.post .wiki-wrapper .article-container article article h1, .code-questions.new .wiki-wrapper .article-container article article h1, .code-questions.edit .wiki-wrapper .article-container article article h1, .code-questions.post .wiki-wrapper .article-container article article h1 {
+    font-size: 22px;
+    line-height: 36px;
+    clear: both;
+    font-weight: 400;
+    padding-top: .4em;
+}
+.learning_center.show .wiki-wrapper .article-container article figure.left, .learning_center.show .wiki-wrapper .article-container article figure.right, .learning_center.edit .wiki-wrapper .article-container article figure.left, .learning_center.edit .wiki-wrapper .article-container article figure.right, .learning_center.new .wiki-wrapper .article-container article figure.left, .discussions.new .wiki-wrapper .article-container article figure.left, .discussions.edit .wiki-wrapper .article-container article figure.left, .discussions.post .wiki-wrapper .article-container article figure.left, .code-questions.new .wiki-wrapper .article-container article figure.left, .code-questions.edit .wiki-wrapper .article-container article figure.left, .code-questions.post .wiki-wrapper .article-container article figure.left, .learning_center.new .wiki-wrapper .article-container article figure.right, .discussions.new .wiki-wrapper .article-container article figure.right, .discussions.edit .wiki-wrapper .article-container article figure.right, .discussions.post .wiki-wrapper .article-container article figure.right, .code-questions.new .wiki-wrapper .article-container article figure.right, .code-questions.edit .wiki-wrapper .article-container article figure.right, .code-questions.post .wiki-wrapper .article-container article figure.right {
+    max-width: 400px;
+    text-align: center;
+}
+.learning_center.show .wiki-wrapper .article-container article figure.left, .learning_center.edit .wiki-wrapper .article-container article figure.left, .learning_center.new .wiki-wrapper .article-container article figure.left, .discussions.new .wiki-wrapper .article-container article figure.left, .discussions.edit .wiki-wrapper .article-container article figure.left, .discussions.post .wiki-wrapper .article-container article figure.left, .code-questions.new .wiki-wrapper .article-container article figure.left, .code-questions.edit .wiki-wrapper .article-container article figure.left, .code-questions.post .wiki-wrapper .article-container article figure.left {
+    float: left;
+    padding-right: 40px;
+}
+.learning_center.show .wiki-wrapper .article-container article figure.right, .learning_center.edit .wiki-wrapper .article-container article figure.right, .learning_center.new .wiki-wrapper .article-container article figure.right, .discussions.new .wiki-wrapper .article-container article figure.right, .discussions.edit .wiki-wrapper .article-container article figure.right, .discussions.post .wiki-wrapper .article-container article figure.right, .code-questions.new .wiki-wrapper .article-container article figure.right, .code-questions.edit .wiki-wrapper .article-container article figure.right, .code-questions.post .wiki-wrapper .article-container article figure.right {
+    float: right;
+    padding-left: 40px;
+}
+.learning_center.show .wiki-wrapper .article-container article figure, .learning_center.edit .wiki-wrapper .article-container article figure, .learning_center.new .wiki-wrapper .article-container article figure, .discussions.new .wiki-wrapper .article-container article figure, .discussions.edit .wiki-wrapper .article-container article figure, .discussions.post .wiki-wrapper .article-container article figure, .code-questions.new .wiki-wrapper .article-container article figure, .code-questions.edit .wiki-wrapper .article-container article figure, .code-questions.post .wiki-wrapper .article-container article figure {
+    margin: 20px 0;
+    text-align: left;
+}
+.learning_center.show .wiki-wrapper .article-container article figure figcaption, .learning_center.edit .wiki-wrapper .article-container article figure figcaption, .learning_center.new .wiki-wrapper .article-container article figure figcaption, .discussions.new .wiki-wrapper .article-container article figure figcaption, .discussions.edit .wiki-wrapper .article-container article figure figcaption, .discussions.post .wiki-wrapper .article-container article figure figcaption, .code-questions.new .wiki-wrapper .article-container article figure figcaption, .code-questions.edit .wiki-wrapper .article-container article figure figcaption, .code-questions.post .wiki-wrapper .article-container article figure figcaption {
+    padding-top: 10px;
+    display: block;
+}
+.learning_center.show .wiki-wrapper .article-container article figure.center, .learning_center.edit .wiki-wrapper .article-container article figure.center, .learning_center.new .wiki-wrapper .article-container article figure.center, .discussions.new .wiki-wrapper .article-container article figure.center, .discussions.edit .wiki-wrapper .article-container article figure.center, .discussions.post .wiki-wrapper .article-container article figure.center, .code-questions.new .wiki-wrapper .article-container article figure.center, .code-questions.edit .wiki-wrapper .article-container article figure.center, .code-questions.post .wiki-wrapper .article-container article figure.center {
+    text-align: center;
+    margin: 0 auto;
+}
+.learning_center.show .last-updated, .learning_center.edit .last-updated, .learning_center.new .last-updated, .discussions.new .last-updated, .discussions.edit .last-updated, .discussions.post .last-updated, .code-questions.new .last-updated, .code-questions.edit .last-updated, .code-questions.post .last-updated {
+    border-top: 1px #ddd solid;
+    padding-top: 12px;
+    font-size: 12px;
+    display: block;
+}
+.no-articles, .blank-slate {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 2px #ccc solid;
+    text-align: center;
+    padding: 110px 0 !important;
+}
+.no-articles .awesome-button, .blank-slate .awesome-button {
+    display: block;
+    margin: 20px auto;
+    max-width: 240px;
+}
+.dropdown ul.dropdown-menu {
+    padding: 20px 0;
+    border: 1px solid #cfcfcf;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 2px 1px rgba(84, 84, 84, 0.1);
+    -moz-box-shadow: 0 2px 1px rgba(84, 84, 84, 0.1);
+    box-shadow: 0 2px 1px rgba(84, 84, 84, 0.1);
+}
+.community .filters .community-wrapper .dropdown .dropdown-menu.filters-dropdown>li {
+    padding: 0 20px;
+    line-height: 24px;
+}
+.dropdown .dropdown-menu.filters-dropdown>li>a {
+    display: inline-block;
+    width: auto;
+}
+.dropdown .dropdown-menu>li>a {
+    padding: 0 15px;
+}
+.dropdown .topic:before {
+    content: " ";
+    height: 6px;
+    width: 6px;
+    border-radius: 150px;
+    border: 2px #ccc solid;
+    display: inline-block;
+}
+.dropdown .topic span.count {
+    font-size: 12px;
+    color: #aaaaaa;
+}
+.forums .topic:before {
+    content: " ";
+    height: 4px;
+    width: 4px;
+    border-radius: 150px;
+    border: 2px #ccc solid;
+    display: inline-block;
+    position: relative;
+    top: 0px;
+    right: 2px;
+}
+.forums .topic:before, .forums .topic:after {
+	-webkit-box-sizing: initial;
+	-moz-box-sizing: initial;
+	box-sizing: initial;
+}
+.forums li.email-design:before {
+    border-color: #7eccad;
+}
+.forums li.email-clients:before {
+    border-color: #e2926b;
+}
+.forums li.responsive:before {
+    border-color: #abc9cf;
+}
+.forums li.community:before {
+    border-color: #e9ae91;
+}
+.forums li.e-s-p-s:before {
+    border-color: #f1cb9a;
+}
+.forums li.meetups:before {
+    border-color: #A3A3A3;
+}
+.forums li.resources:before {
+    border-color: #f89b9b;
+}
+.forums li.tools:before {
+    border-color: #cdc476;
+}
+.forums li.css:before {
+    border-color: #FF6767;
+}
+.forums li.experimental-techniques:before {
+    border-color: #A67DEA;
+}
+.forums li.fonts:before {
+    border-color: #f1cb9a;
+}
+.forums li.html:before {
+    border-color: #A3A3A3;
+}
+.forums li.images:before {
+    border-color: #f89b9b;
+}
+.forums li.mobile:before {
+    border-color: #cdc476;
+}
+.forums .post-summary {
+    margin-top: 25px;
+}
+.forums .post-summary .container-fluid {
+    padding: 0;
+}
+.forums .post-summary .container-fluid .row-fluid {
+    margin-bottom: 10px;
+    min-height: 80px;
+    -webkit-box-shadow: 0 1px 1px rgba(84, 84, 84, 0.15);
+    -moz-box-shadow: 0 1px 1px rgba(84, 84, 84, 0.15);
+    box-shadow: 0 1px 1px rgba(84, 84, 84, 0.15);
+    border-radius: 3px;
+}
+.forums .post-summary .container-fluid .row-fluid .voting {
+    background-color: #181a1e;
+    -webkit-border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 600;
+    min-width: 80px;
+    display: table-cell;
+}
+.forums .post-summary .container-fluid .row-fluid .voting span {
+    font-size: 10px;
+    text-transform: uppercase;
+    display: block;
+}
+.forums .post-summary .container-fluid .row-fluid.downvoted {
+    opacity: .5;
+    filter: alpha(opacity=50);
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.forums .post-summary .container-fluid .row-fluid.downvoted:hover {
+    opacity: .8;
+    filter: alpha(opacity=80);
+}
+.forums .post-summary .container-fluid .row-fluid span.new-activity {
+    background-color: #72a7ca;
+    color: #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 10px;
+    padding: 4px 8px;
+    margin-left: 10px;
+    position: relative;
+    bottom: 3px;
+    opacity: 0.8;
+    white-space: nowrap;
+    line-height: 0;
+}
+.forums .post-summary .container-fluid .row-fluid .post-description {
+	background: #1e2024;
+    display: table-cell;
+    padding: 19px 30px;
+    max-width: inherit;
+    width: 100%}
+.forums .post-summary .container-fluid .row-fluid .post-description h2 {
+font-size: 18px;
+line-height: 24px;
+font-weight: 400;
+margin: 0;
+}
+.forums .post-summary .container-fluid .row-fluid .post-description h2 a {
+    color: #60636f;
+}
+.forums .post-summary .container-fluid .row-fluid .post-description h2 a:hover {
+    color: #9396a2;
+}
+.forums .post-summary .container-fluid .row-fluid .post-description h2 a:active {
+    color: #313238;
+}
+.forums .post-summary .container-fluid .row-fluid .post-description h2 a:visited {
+    color: #b8b8b8;
+}
+.forums .post-summary .container-fluid .row-fluid .post-description h2 a:visited:hover {
+    color: #858585;
+}
+.forums .post-summary .container-fluid .row-fluid .post-description h2 a.new-activity:visited {
+    color: #60636f;
+}
+.forums .post-summary .container-fluid .row-fluid .post-description h2 a.new-activity:visited .responses {
+    color: #60636f;
+}
+.forums .post-summary .container-fluid .row-fluid .post-description h2 a.new-activity:visited:hover, .forums .post-summary .container-fluid .row-fluid .post-description h2 a.new-activity:visited:hover .responses {
+    color: #313238;
+}
+.forums .post-summary .container-fluid .row-fluid .post-description ul li {
+    color: #a2acb3;
+    list-style-type: none;
+    display: inline-block;
+    font-size: 12px;
+	padding-left: 0;
+	line-height: normal;
+}
+.forums .post-summary .container-fluid .row-fluid .post-description ul li:after {
+    content: "|";
+    padding: 4px;
+}
+.forums .post-summary .container-fluid .row-fluid .post-description ul li:last-child:after {
+    content: "";
+    padding: 0;
+}
+.forums .post-summary .container-fluid .row-fluid .post-description ul li a {
+    color: #b8b8b8;
+}
+.forums .post-summary .container-fluid .row-fluid .post-description ul li a:hover {
+    color: #858585;
+}
+.forums .post-summary .container-fluid .row-fluid .responses {
+    display: table-cell;
+    font-size: 18px;
+    color: #797c8c;
+    min-width: 80px;
+    vertical-align: middle;
+	background: #1e2024;
+}
+.forums .post-summary .container-fluid .row-fluid .responses .ico {
+    padding-right: 5px;
+}
+.forums .post-summary .container-fluid .row-fluid .responses:visited {
+    color: #b8b8b8;
+}
+.forums .post-summary .container-fluid .row-fluid .responses:visited:hover {
+    color: #858585;
+}
+.forums .post-summary .container-fluid .row-fluid .responses:visited.new-activity {
+    color: #797c8c;
+}
+.forums .post-summary .container-fluid .row-fluid .responses:visited.new-activity:hover {
+    color: #494b56;
+}
+.new .box {
+    margin-top: 60px;
+}
+.discussions.new header#top, .discussions.edit header#top, .discussions.post header#top {
+    background-color: #d7ad5e;
+}
+.discussions.new .reply-container header, .discussions.edit .reply-container header, .discussions.post .reply-container header {
+    background-color: #f9f9f9;
+}
+.code-questions.new header#top, .code-questions.edit header#top, .code-questions.post header#top {
+    background: #75c4a3;
+}
+.code-questions.new #discussion_title, .code-questions.edit #discussion_title, .code-questions.post #discussion_title {
+    width: 98%}
+.code-questions .post-summary .container-fluid .row-fluid .voting, .code-questions.discussions .post-summary .container-fluid .row-fluid .voting {
+    background: #75c4a3;
+}
+.code-questions.post .post-container header, .code-questions.discussions.post .post-container header {
+    background: #75c4a3;
+}
+.post .container-fluid {
+    padding: 0;
+}
+.post a.author {
+    color: #b8b8b8;
+    font-weight: 600;
+    text-decoration: underline;
+    color: #b8b8b8;
+    font-weight: 600;
+}
+.post a.author:hover {
+    color: #929292;
+}
+.post .post-container {
+    margin: 0 0 10px 0;
+    background-color: #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 2px 1px rgba(84, 84, 84, 0.1);
+    -moz-box-shadow: 0 2px 1px rgba(84, 84, 84, 0.1);
+    box-shadow: 0 2px 1px rgba(84, 84, 84, 0.1);
+}
+.post .post-container:first-child {
+    margin: 60px 0 10px 0;
+}
+.post .post-container:last-child {
+    margin-bottom: 25px;
+}
+.post .post-container section.post-body {
+    overflow: auto;
+    padding: 60px 30px 40px;
+    position: relative;
+}
+.post .post-container section.post-body.downvoted {
+    opacity: .5;
+    filter: alpha(opacity=50);
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.post .post-container section.post-body.downvoted:hover {
+    opacity: .8;
+    filter: alpha(opacity=80);
+}
+.post .post-container section.post-body p.controls {
+    line-height: 0;
+    float: right;
+    position: relative;
+    bottom: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+}
+.post .post-container section.post-body p.controls a {
+    color: #b8b8b8;
+}
+.post .post-container section.post-body p.controls a:hover {
+    color: #858585;
+}
+.post .post-container section.post-body h2.title {
+    font-size: 30px;
+    font-weight: 300;
+    margin: 0 0 5px 0;
+}
+.post .post-container section.post-body .voting {
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.5em;
+    float: left;
+    width: 15px;
+    margin-right: 30px;
+    margin-left: 0;
+}
+.post .post-container section.post-body .voting .up, .post .post-container section.post-body .voting .down {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    color: #b8b8b8;
+    cursor: pointer;
+    font-family: 'icomoon'}
+.post .post-container section.post-body .voting .up:before {
+    content: "\5f"}
+.post .post-container section.post-body .voting .up:hover {
+    color: #1abc9c;
+}
+.post .post-container section.post-body .voting .up:active {
+    color: #0e6252;
+}
+.post .post-container section.post-body .voting .down:before {
+    content: "\60"}
+.post .post-container section.post-body .voting .down:hover {
+    color: #be6666;
+}
+.post .post-container section.post-body .voting .down:active {
+    color: #853939;
+}
+.post .post-container section.post-body .voting .sup.downvoted, .post .post-container section.post-body .voting .sup.upvoted {
+    font-weight: bold;
+}
+.post .post-container section.post-body .voting .sup.downvoted {
+    color: #be6666;
+}
+.post .post-container section.post-body .voting .sup.upvoted {
+    color: #1abc9c;
+}
+.post .post-container section.post-body .identity-avatar {
+    margin-right: 30px;
+    border: 0;
+}
+.post .post-container section.post-body .post-content {
+    display: block;
+    margin-left: 135px;
+    color: #818f98;
+}
+.post .post-container section.post-body .post-content blockquote {
+    font-family: "proxima-nova",  sans-serif;
+    margin: 20px;
+    border-left: 3px solid #eeeeee;
+}
+.post .post-container section.post-body .post-content blockquote p {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+}
+.post .post-container section.post-body .post-content ul, .post .post-container section.post-body .post-content ol {
+    margin: 20px 34px;
+}
+.post .post-container section.post-body .post-content ul li, .post .post-container section.post-body .post-content ol li {
+    font-size: 16px;
+    line-height: 24px;
+}
+.post .post-container section.post-body .post-content ul li {
+    list-style-type: disc;
+}
+.post .post-container section.post-body .metadata {
+    font-size: 14px;
+    font-weight: 400;
+    color: #b8b8b8;
+    margin-bottom: 20px;
+}
+.post .post-container section.post-body .metadata a.edit-post {
+    float: right;
+    color: #b8b8b8;
+    font-weight: 600;
+}
+.post .post-container section.post-body .metadata a.edit-post:hover {
+    color: #929292;
+}
+.post .post-container section.post-body .reply-comment, .post .post-container section.post-body .author {
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+}
+.post .post-container section.post-body .reply-comment {
+    top: 20px;
+}
+.post .post-container section.nested-post {
+    border-top: 1px #b8b8b8 solid;
+    padding-left: 75px;
+}
+.post .post-container section.comment .tab-wrapper textarea {
+    min-height: 250px;
+}
+.post .post-container section.comment .tab-wrapper .tab-content {
+    background-color: #f9f9f9;
+}
+.post .post-container section.comment .tab-wrapper .nav-tabs {
+    background-color: #fff;
+    padding-top: 30px;
+}
+.post .post-container section.comment .tab-wrapper .nav-tabs>.active>a, .post .post-container section.comment .tab-wrapper .nav-tabs>.active>a:hover, .post .post-container section.comment .tab-wrapper .nav-tabs>.active>a:focus {
+    background-color: #f9f9f9 !important;
+    border-bottom: 2px solid #f9f9f9;
+}
+.post .post-container section.comment footer {
+    text-align: right;
+    padding: 0 30px;
+    border: 0;
+}
+.post .post-container section.comment footer>a.cancel {
+    color: #b8b8b8;
+    font-weight: 600;
+    margin-right: 10px;
+    position: relative;
+    top: 2px;
+    font-size: 15px;
+}
+.post .post-container section.comment footer>a.cancel:hover {
+    color: #858585;
+}
+.post .post-container section.nested .nav-tabs, .post .post-container section.nested .tab-content {
+    padding-left: 208px;
+}
+.post .post-container>footer {
+    background-color: #f9f9f9;
+    border-top: 1px #ddd solid;
+    padding: 30px 0 30px;
+    min-height: 50px;
+    -webkit-border-radius: 0 0 3px 3px;
+    -moz-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
+}
+.post .sorting {
+    padding-top: 15px;
+}
+.post .sorting div.white-select {
+    padding: 0 5px;
+    margin-left: 10px;
+}
+.post .sorting>div span.comment-count {
+    display: inline-block;
+    float: left;
+    position: relative;
+    top: 5px;
+}
+.list-footer, .community .dropper>footer {
+    background: #f8f8f8;
+    border-top: 1px solid #cacaca;
+    color: #454343;
+    height: 40px;
+    font-size: 12px;
+    line-height: 40px;
+    padding: 0;
+    text-align: center;
+    width: 100%}
+.list-footer a, .community .dropper>footer a {
+    color: #454343;
+    text-decoration: underline;
+}
+.community .dropper {
+    background: #fff;
+    border: 1px solid #d9d9d7;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    display: none;
+    padding-top: 15px;
+}
+.community .dropper.active {
+    display: block;
+}
+.community .dropper .line {
+    zoom: 1;
+    margin-bottom: 10px;
+    padding: 0 15px;
+}
+.community .dropper .line:before, .community .dropper .line:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+.community .dropper .line:after {
+    clear: both;
+}
+.white-select {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.09);
+    display: inline-block;
+}
+.awesome-button {
+    border-radius: 3px;
+    border: 0;
+    color: white;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 600;
+}
+.awesome-button:hover, .awesome-button:active, .awesome-button:focus {
+    color: white;
+}
+.awesome-button .icon {
+    display: inline-block;
+    margin-right: 5px;
+    position: relative;
+    text-align: center;
+    top: 1px;
+    width: 20px;
+}
+.awesome-button.green {
+    background: #d7ad5e;
+}
+.awesome-button.green:hover {
+    background: #92d2ac;
+}
+.awesome-button.blue {
+    background: #86a3b0;
+}
+.awesome-button.blue:hover {
+    background: #99b1bc;
+}
+.awesome-button.red {
+    background: #ec6161;
+}
+.awesome-button.red:hover {
+    background: #ef7c7c;
+}
+ul.subnav-right {
+    display: block;
+    float: right;
+    list-style: none;
+    padding-bottom: 0;
+}
+ul.subnav-right li {
+    display: inline-block;
+    margin-right: 5px;
+	padding-left: 0;
+	line-height: normal;
+}
+ul.subnav-right li:last-child {
+    margin-right: 0;
+}
+.filters+.subnav-right {
+    position: relative;
+    top: -34px;
+}
+.filters .dropdown.open>a {
+    color: #7e7e7e !important;
+}
+.dropdown-menu.filters-dropdown {
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    min-width: 200px;
+    z-index: 70;
+    left: -70px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px #E7E7E7 solid;
+}
+.dropdown-menu.filters-dropdown>li {
+    padding-right: 0 !important;
+    width: 100%}
+.dropdown-menu.filters-dropdown>li.selected a {
+    color: #3f4149 !important;
+}
+.dropdown-menu.filters-dropdown>li>a {
+    display: block;
+    width: 100%}
+.dropdown-menu.filters-dropdown>li>a:hover {
+    background: transparent;
+    background-image: none;
+}
+.title-actions {
+    float: right;
+    height: 39px;
+    position: relative;
+    top: -11px;
+}
+.title-actions li {
+    float: left;
+}
+.title-actions li a {
+    zoom: 1;
+    display: block;
+    line-height: 34px !important;
+    padding: 8px 30px;
+    border-left: 1px rgba(95, 95, 95, 0.7) solid;
+    position: relative;
+    overflow: hidden;
+}
+.title-actions li a:before, .title-actions li a:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+.title-actions li a:after {
+    clear: both;
+}
+.title-actions li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+.title-actions li a .ico {
+    padding-right: 10px;
+    font-size: 12px;
+}
+.post-container #top.post-header.with-actions {
+    overflow-y: hidden;
+    padding-bottom: 0;
+}
+.search-form_ {
+    float: left;
+    margin: 0 0 20px 0;
+    position: relative;
+    width: 70%}
+.search-form_ .search, .search-form_ .prefix {
+    -webkit-transition: all 0.6s ease-in-out;
+    -moz-transition: all 0.6s ease-in-out;
+    -ms-transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
+    transition: all 0.6s ease-in-out;
+}
+.search-form_ .search {
+border: 2px solid #fff;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+height: auto !important;
+font-size: 14px !important;
+padding: 10px 20px 9px 50px !important;
+width: 30%;
+line-height: 30px !important;
+background: none;
+}
+.search-form_ .search:focus, .search-form_ .search:focus+.prefix {
+    border-color: #cecece;
+}
+.search-form_ .search:focus {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    width: 100%}
+.search-form_ .prefix {
+    border-right: 1px solid #e7e7e7;
+    display: inline-block;
+    font-family: 'icomoon';
+    font-size: 14px;
+    line-height: 30px;
+    padding-right: 10px;
+    position: absolute;
+    left: 11px;
+    top: 10px;
+}
+.community .community-wrapper .blank-slate {
+    margin-top: 60px;
+    background: transparent;
+}
+.community .community-wrapper .blank-slate h3, .community .community-wrapper .blank-slate p, .community .community-wrapper .blank-slate .ico {
+    color: #8a8a8a;
+    margin-left: 0;
+    margin-right: 0;
+}
+.community .community-wrapper .blank-slate .ico {
+    display: block;
+    font-size: 100px;
+    line-height: 100px;
+    margin: 20px auto;
+    opacity: 0.5;
+    position: static;
+    text-align: center;
+    width: 150px;
+}
+.community .community-wrapper .blank-slate h3 {
+    font-size: 30px;
+}
+body.community.code-questions .community-wrapper .blank-slate .ico {
+    color: #75c4a3;
+}
+body.community.discussions .community-wrapper .blank-slate .ico {
+    color: #60636f;
+}
+.markdown {
+    float: left;
+    color: #5f5f5f;
+}
+.markdown.before-editor {
+    float: right;
+    font-size: 12px;
+    margin: 0 0 10px 0;
+    text-align: right;
+    color: #5f5f5f;
+}
+.markdown.before-editor:before {
+    font-size: 13px;
+}
+.markdown:before {
+    color: #888;
+    content: "\e000";
+    width: 34px;
+    height: 15px;
+    font-family: 'icomoon';
+    font-size: 15px;
+    display: inline-block;
+    float: left;
+    position: relative;
+    top: 0px;
+    margin-right: 3px;
+}
+@media only screen and (max-width: 1800px) {
+    .community-wrapper {
+    max-width: 100%}
+}.CodeMirror {
+    min-height: 350px;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-right: 2px #ddd solid;
+    border-bottom: 2px #ddd solid;
+    border-left: 2px #ddd solid;
+    -webkit-border-radius: 0 0 3px 3px;
+    -moz-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
+    width: 100%;
+    font-size: 16px;
+    line-height: 24px;
+    box-shadow: none;
+}
+.community-editor-comment {
+    min-height: 200px;
+    height: 200px;
+    background-color: #fff;
+}
+.editor-toolbar {
+    padding: 10px;
+    background-color: #f5f5f5;
+    -webkit-border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+    border: 2px #dddddd solid;
+    font-size: 15px;
+    opacity: 1;
+}
+.editor-toolbar i.separator {
+    margin: 0 15px 0 0px;
+    height: 34px;
+}
+.editor-wrapper input.title:hover, .editor-wrapper input.title:focus, .editor-toolbar:hover {
+    opacity: 1;
+}
+.editor-toolbar:before, .editor-toolbar:after {
+    display: none;
+}
+.editor-toolbar a {
+    background: none;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 15px;
+    color: #8d8e97 !important;
+}
+.editor-toolbar a:hover, .editor-toolbar a.active {
+    background: transparent;
+    border: none;
+    color: #64656b !important;
+    top: 1px;
+    position: relative;
+}
+.icon-heading-2, .icon-heading-3, .icon-heading-4 {
+    font-family: 'icomoon';
+    font-size: 14px;
+    margin-top: -1px !important;
+}
+.icon-heading-2:before {
+    content: "\e003"}
+.icon-heading-3:before {
+    content: "\e001"}
+.icon-heading-4:before {
+    content: "\e002"}
+* {
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    -ms-background-clip: padding-box;
+    -o-background-clip: padding-box;
+}
+body.learning_center .box {
+    margin-top: 60px;
+}
+body.learning_center .dropdown .email-clients:before {
+    border-color: #e2926b;
+}
+body.learning_center .dropdown .email-design:before {
+    border-color: #7eccad;
+}
+body.learning_center .dropdown .email-coding:before {
+    border-color: #f1cb9a;
+}
+body.learning_center .dropdown .strategy:before {
+    border-color: #7d7d7d;
+}
+body.learning_center .dropdown .videos:before {
+    border-color: #f89696;
+}
+body.learning_center .dropdown .tutorials:before {
+    border-color: #94b9c1;
+}
+ol.article-cards {
+    margin: 0;
+    overflow: auto;
+}
+ol.article-cards .span4, ol.article-cards .span6 {
+    position: relative;
+    height: 300px;
+}
+ol.article-cards .span6 ul.meta {
+    width: 90.5%}
+ol.article-cards .span6.featured {
+    min-height: 620px;
+}
+ol.article-cards>li {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 1px rgba(84, 84, 84, 0.15);
+    -moz-box-shadow: 0 1px 1px rgba(84, 84, 84, 0.15);
+    box-shadow: 0 1px 1px rgba(84, 84, 84, 0.15);
+    background-color: #fff;
+    border-top: 10px #ccc solid;
+    margin: 0 0 20px 20px;
+}
+ol.article-cards>li section {
+    position: relative;
+    padding: 1.563em 1.875em;
+}
+ol.article-cards>li section h3 {
+    font-size: 25px;
+    line-height: 27px;
+    font-weight: 300;
+    max-height: 60px;
+}
+ol.article-cards>li section h3 a {
+    color: #60636f;
+}
+ol.article-cards>li section h3 a:hover {
+    color: #9396a2;
+}
+ol.article-cards>li section h3 a:active {
+    color: #313238;
+}
+ol.article-cards>li section p {
+    height: 96px;
+    overflow: hidden;
+}
+ol.article-cards>li section .tooltip {
+    position: absolute;
+    z-index: 1020;
+    display: block;
+    visibility: visible;
+    padding: 5px;
+    font-size: 12px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+ol.article-cards>li section .tooltip.in {
+    opacity: .9;
+    filter: alpha(opacity=90);
+}
+ol.article-cards>li section .tooltip.top {
+    margin-top: 5%}
+ol.article-cards>li section .tooltip.top .tooltip-arrow {
+    display: none;
+}
+ol.article-cards>li section .tooltip-inner {
+    max-width: 300px;
+    padding: 4px 8px;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+    background-color: #f5f5f5;
+    border: 1px solid #cfcfcf;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 2px 1px rgba(84, 84, 84, 0.1);
+    -moz-box-shadow: 0 2px 1px rgba(84, 84, 84, 0.1);
+    box-shadow: 0 2px 1px rgba(84, 84, 84, 0.1);
+}
+ol.article-cards>li ul.meta {
+    padding: 20px 0;
+    font-size: 12px;
+    border-top: 1px #ddd solid;
+    position: absolute;
+    bottom: 0;
+    width: 85%;
+    margin: 0 30px;
+    display: block;
+}
+ol.article-cards>li ul.meta li {
+    line-height: 24px;
+    display: inline-block;
+}
+ol.article-cards>li ul.meta li span.avatar img {
+    margin-right: 3px;
+    height: 20px;
+    width: 20px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    vertical-align: top;
+}
+ol.article-cards>li ul.meta li a {
+    color: #535d63;
+}
+ol.article-cards>li ul.meta li a:hover {
+    color: #303639;
+}
+ol.article-cards>li ul.meta li span.time {
+    font-size: 0.85em;
+}
+ol.article-cards .topic:before {
+    content: " ";
+    height: 6px;
+    width: 6px;
+    border-radius: 150px;
+    border: 2px #ccc solid;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    right: 5px;
+}
+ol.article-cards li.email-clients {
+    border-color: #db7746;
+}
+ol.article-cards li.email-clients .topic:before {
+    border-color: #e2926b;
+}
+ol.article-cards li.email-coding {
+    border-color: #edbb7b;
+}
+ol.article-cards li.email-coding .topic:before {
+    border-color: #f1cb9a;
+}
+ol.article-cards li.email-design {
+    border-color: #5ebf98;
+}
+ol.article-cards li.email-design .topic:before {
+    border-color: #7eccad;
+}
+ol.article-cards li.strategy {
+    border-color: #5d5d5d;
+}
+ol.article-cards li.strategy .topic:before {
+    border-color: #7d7d7d;
+}
+ol.article-cards li.videos {
+    border-color: #f67c7c;
+}
+ol.article-cards li.videos .topic:before {
+    border-color: #f89696;
+}
+ol.article-cards li.tutorials {
+    border-color: #72a4ae;
+}
+ol.article-cards li.tutorials .topic:before {
+    border-color: #94b9c1;
+}
+ol.article-cards .featured section p, ol.article-cards .popular section p {
+    height: 7em;
+    margin: 0;
+}
+ol.article-cards .featured .featured-image {
+    overflow: hidden;
+    max-height: 320px;
+}
+ol.article-cards .featured .featured-image img {
+    display: table-cell;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+ol.article-cards .email-clients .featured-image {
+    background-color: #db7746;
+}
+ol.article-cards .email-coding .featured-image {
+    background-color: #edbb7b;
+}
+ol.article-cards .email-design .featured-image {
+    background-color: #5ebf98;
+}
+ol.article-cards .strategy .featured-image {
+    background-color: #5d5d5d;
+}
+ol.article-cards .videos .featured-image {
+    background-color: #f67c7c;
+}
+ol.article-cards .tutorials .featured-image {
+    background-color: #72a4ae;
+}
+.learning_center .title-actions li a {
+    border-left: 1px rgba(95, 95, 95, 0.3) solid;
+}
+.article-container .last-updated>span {
+    float: right;
+    font-style: italic;
+}
+.article-container .last-updated a {
+    font-weight: 600;
+    display: inline-block;
+}
+.article-container .last-updated a .ico {
+    font-size: 7px;
+    font-weight: normal;
+    padding-left: 4px;
+}
+.article-container .article-history {
+    width: 300px;
+}
+.article-container .article-history .line {
+    font-size: 12px;
+    line-height: 26px;
+}
+.article-container .article-history .line a {
+    font-weight: 600;
+}
+.article-container .article-history .line time {
+    font-style: italic;
+}
+.article-container img {
+    margin: 0 auto 1em;
+    display: block;
+}
+.article-container img[alt*="left"], .article-container img[alt*="Left"] {
+    float: left;
+    margin: 0 2em 0 0;
+}
+.article-container img[alt*="right"], .article-container img[alt*="Right"] {
+    float: right;
+    margin: 0 0 0 2em;
+}
+.article-comments {
+    display: none;
+}
+.learning_center #contributors-list {
+    list-style: none;
+}
+.learning_center #contributors-list li {
+    list-style: none;
+    margin-left: 0;
+}
+.learning_center #contributors-list .contributor {
+    zoom: 1;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 24px;
+    margin-bottom: 15px;
+    color: #b8b8b8;
+}
+.learning_center #contributors-list .contributor:before, .learning_center #contributors-list .contributor:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+.learning_center #contributors-list .contributor:after {
+    clear: both;
+}
+.learning_center #contributors-list .contributor span {
+    color: #a8a8a8;
+    font-style: italic;
+    font-weight: normal;
+}
+.learning_center #contributors-list .contributor a {
+    color: #b8b8b8;
+}
+.learning_center #contributors-list .contributor a:hover {
+    color: #777777;
+}
+.learning_center #contributors-list .contributor+.contributor {
+    display: none;
+}
+.learning_center #contributors-list .list-footer {
+    display: none;
+    font-size: 12px;
+    line-height: 40px;
+}
+.learning_center ul.contributors {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    background: white;
+    border: 2px solid #efefef;
+    border-radius: 4px;
+    float: right;
+    font-size: 14px;
+    font-weight: bold;
+    max-height: 46px;
+    right: 40px;
+    padding: 10px;
+    position: absolute;
+    top: 95px;
+    width: 200px;
+    z-index: 9999;
+}
+.learning_center ul.contributors li {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    display: block;
+    height: 0;
+    line-height: 26px;
+    max-height: 0;
+    opacity: 0.0;
+}
+.learning_center ul.contributors li:first-child {
+    height: 26px;
+    max-height: 26px;
+    opacity: 1.0;
+}
+.learning_center ul.contributors li .arrow {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    font-family: 'icomoon';
+    opacity: 1.0;
+    position: absolute;
+    right: 10px;
+}
+.learning_center ul.contributors li .identity-avatar {
+    border: 0;
+}
+.learning_center ul.contributors:hover {
+    max-height: 1040px;
+}
+.learning_center ul.contributors:hover .arrow {
+    opacity: 0.0;
+}
+.learning_center ul.contributors:hover li {
+    height: 26px;
+    max-height: 26px;
+    opacity: 1.0;
+}
+.learning_center ul.contributors:hover li:first-child {
+    margin-bottom: 10px;
+}
+.awesome-button.green.history .icon {
+    font-size: 19px;
+}
+.diff-context {
+    border: 2px solid #d2d2d2;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+.diff-context ul.diff, .diff-context ul.diff li {
+    width: 100%}
+.diff-context>a {
+    float: right;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.diff {
+    overflow: auto;
+}
+.diff ul {
+    background: #fff;
+    overflow: auto;
+    font-size: 13px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: table;
+    width: 100%}
+.diff del, .diff ins {
+    display: block;
+    text-decoration: none;
+}
+.diff li {
+    color: #a0a0a0;
+    padding: 0;
+    display: table-row;
+    margin: 0;
+    height: 1em;
+}
+.diff li.ins, .diff li.del {
+    color: #333;
+}
+.diff li.ins {
+    background: #ddffdc;
+}
+.diff li.del {
+    background: #ffdcdc;
+}
+.diff del, .diff ins, .diff span {
+    white-space: pre-wrap;
+    font-family: courier;
+}
+.diff del strong {
+    font-weight: normal;
+    background: #fcc;
+}
+.diff ins strong {
+    font-weight: normal;
+    background: #9f9;
+}
+.diff li.diff-comment {
+    display: none;
+}
+.diff li.diff-block-info {
+    background: none repeat scroll 0 0 gray;
+}
+.diff-anchor {
+    display: block;
+    pointer-events: none;
+    position: relative;
+    margin-top: -100px;
+    height: 100px;
+}
+@media only screen and (max-width: 1150px) {
+    .index .community-wrapper nav ul li {
+    width: 80%}
+.article-wrapper {
+    width: 80%}
+}@media screen and (min-width: 1024px) and (max-width: 1280px) {
+    ol.article-cards>li section {
+    min-height: 15.75em;
+}
+}@media screen and (max-width: 1141px) {
+    span.time {
+    display: none;
+}
+}.community.code-questions .dropdown-menu.filters-dropdown {
+    min-width: 280px;
+    left: -160px;
+}
+.community.code-questions code[class*="language"], .community.code-questions pre[class*="language"] {
+    max-height: 600px;
+    overflow-y: scroll;
+    margin: 20px 0;
+}
+.community.code-questions span.new-activity {
+    background-color: #999cd7 !important;
+}
+.community.code-questions .post-description .ico.answered {
+    color: #55bc92;
+    display: inline-block;
+    font-size: 10px;
+    position: relative;
+    bottom: 2px;
+    padding-right: 5px;
+}
+.community.code-questions .answer-flag {
+    position: relative;
+}
+.community.code-questions .answer-flag:before {
+    color: #fff;
+    background-color: #55bc92;
+    border-radius: 3px 0 0 3px;
+    position: absolute;
+    left: -59px;
+    top: 56px;
+    clear: both;
+    font-family: 'icomoon';
+    content: "\25";
+    padding: 20px;
+}
+.community.code-questions .unselect {
+    font-weight: normal;
+    color: #ccc;
+    padding-left: 5px;
+}
+.community.code-questions .unselect:hover {
+    color: #005580;
+}
+.community.code-questions .title-actions li a {
+    border-left: 1px rgba(95, 95, 95, 0.3) solid;
+}
+* {
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    -ms-background-clip: padding-box;
+    -o-background-clip: padding-box;
+}
+.animated {
+    -webkit-animation-duration: 1.5s;
+    -moz-animation-duration: 1.5s;
+    -o-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+@-webkit-keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+}
+}@-moz-keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    -moz-transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+}
+}@-o-keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    -o-transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    -o-transform: translateY(0);
+}
+}@keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    transform: translateY(0);
+}
+}.animated.fadeIn {
+    -webkit-animation-name: fadeIn;
+    -moz-animation-name: fadeIn;
+    -o-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+@-webkit-keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+}
+}@-moz-keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    -moz-transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+}
+}@-o-keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    -o-transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    -o-transform: translateY(0);
+}
+}@keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    transform: translateY(0);
+}
+}body.moderators input {
+    padding: 10px;
+    height: 42px;
+    margin: 0 10px;
+}
+body.moderators .filter {
+    padding: 10px;
+}
+body.moderators .box {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+body.moderators .box>header {
+    overflow: auto;
+    padding: 11px 0 11px 30px;
+    background-color: #71a3ad;
+    -webkit-box-shadow: 0 1px 0 white;
+    -moz-box-shadow: 0 1px 0 white;
+    box-shadow: 0 1px 0 white;
+    -webkit-border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+    position: static;
+    height: 52px;
+    overflow: hidden;
+    background-color: #797c8c;
+    line-height: 32px;
+}
+body.moderators .box>header h3 {
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 600;
+    padding: 0;
+}
+body.moderators .box>header h3, body.moderators .box>header span {
+    color: #fff;
+}
+body.moderators .box>header span {
+    padding-left: 10px;
+}
+body.moderators .box>header span.pull-right {
+    padding-right: 30px;
+}
+body.moderators table.moderator th, body.moderators table.moderator td {
+    padding: 30px;
+}
+* {
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    -ms-background-clip: padding-box;
+    -o-background-clip: padding-box;
+}
+.community footer.sorting {
+    background: #fbfbfb;
+    font-weight: 600;
+    padding-left: 168px;
+}
+.community footer.sorting .white-select {
+    background: #7f7f7f;
+    background-image: -webkit-linear-gradient(top,  #fdfdfd 0%,  #f4f4f4 100%);
+    background-image: -o-linear-gradient(top,  #fdfdfd 0%,  #f4f4f4 100%);
+    background-image: linear-gradient(to bottom,  #fdfdfd 0%,  #f4f4f4 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFDFDFD',  endColorstr='#FFF4F4F4',  GradientType=0);
+    border: 1px solid #bfbfbf;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+}
+.community footer.sorting .white-select select {
+    color: #797a7f;
+    font-weight: normal;
+}
+.community .comments-container {
+    background: #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 2px 1px rgba(84, 84, 84, 0.1);
+    -moz-box-shadow: 0 2px 1px rgba(84, 84, 84, 0.1);
+    box-shadow: 0 2px 1px rgba(84, 84, 84, 0.1);
+    margin-bottom: 10px;
+}
+.community .comments-container:last-child {
+    margin-bottom: 50px;
+}
+.community .comment {
+    padding: 60px 30px;
+    border-bottom: 1px #eee solid;
+    color: #818f98;
+}
+.community .comment pre[class*="language-"], .community .comment code[class*="language-"] {
+    max-height: 250px;
+}
+.community .comment blockquote {
+    font-family: "proxima-nova",  sans-serif;
+    margin: 20px;
+    border-left: 3px solid #eeeeee;
+}
+.community .comment blockquote p {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+}
+.community .comment ul, .community .comment ol {
+    margin: 20px 34px;
+}
+.community .comment ul li, .community .comment ol li {
+    font-size: 16px;
+    line-height: 24px;
+}
+.community .comment ul li {
+    list-style-type: disc;
+}
+.community .comment .reply {
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    top: 5px;
+}
+.community .comment .reply span {
+    font-weight: normal;
+    font-size: 10px;
+}
+.community .comment .metadata {
+    color: #b8b8b8;
+}
+.community .comment .metadata:hover {
+    color: #929292;
+}
+.community .comment .comment {
+    border-left: 3px solid #efefef;
+    border-bottom: none;
+    margin-left: 135px;
+    margin-top: 50px;
+    padding-bottom: 0;
+    padding-left: 25px;
+    padding-top: 0;
+    padding-right: 0;
+}
+.community .comment .comment.nested .identity-avatar {
+    display: none;
+}
+.community .comment .comment.nested .comment-side {
+    width: 35px;
+    margin-right: 10px;
+}
+.community .comment .comment.nested .comment.nested {
+    margin-left: 60px;
+}
+.community .comment .comment.nested+.comment.nested {
+    margin-top: 0;
+    padding-top: 50px;
+}
+.community>.comment {
+    padding: 40px;
+}
+.community>.comment+.comment {
+    border-top: 1px solid #efefef;
+}
+.community .comment-side {
+    clear: left;
+    float: left;
+    width: 125px;
+}
+.community .comment-side .identity-avatar {
+    margin-left: 30px;
+    border: none;
+}
+.community .comment-side .answered {
+    color: #75c4a3;
+    display: block;
+    font-family: 'icomoon';
+    font-size: 16px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    top: 15px;
+    width: 50px;
+}
+.community .comment-body {
+    overflow: hidden;
+    position: relative;
+    padding: 0 20px 5px 10px;
+}
+.community .comment-body .comment-header {
+    color: #b8b8b8;
+    font-size: 14px;
+    margin: 0 0 10px 0;
+    padding: 0;
+    text-align: left;
+    position: relative;
+    bottom: 4px;
+}
+.community .comment-actions {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.community .comment-actions a {
+    color: #b8b8b8;
+    font-weight: 600;
+}
+.community .comment-actions a:hover {
+    color: #929292;
+}
+.community .best-answer {
+    color: #69ab7f;
+    opacity: 0.5;
+}
+.community .best-answer:hover {
+    color: #48805a;
+    opacity: 1;
+}
+.community .best-answer .ico {
+    font-size: 8px;
+    margin-right: 5px;
+}
+.community .best-answer, .community .select-best-answer {
+    font-weight: 600;
+    padding: 0 5px;
+    font-size: 14px;
+    position: relative;
+    top: 5px;
+}
+.community .best-answer:before, .community .select-best-answer:before {
+    content: " | ";
+    background-color: transparent;
+    color: #ccc;
+    font-weight: normal;
+    padding: 0 5px;
+}
+.community .comments-container .voting {
+    font-size: 13px;
+    text-align: center;
+    line-height: 18px;
+    float: left;
+    width: 15px;
+}
+.community .comments-container .voting .up, .community .comments-container .voting .down {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    color: #b8b8b8;
+    cursor: pointer;
+    font-family: 'icomoon'}
+.community .comments-container .voting .up:before {
+    content: "\5f"}
+.community .comments-container .voting .up:hover, .community .comments-container .voting .up.active {
+    color: #1abc9c;
+}
+.community .comments-container .voting .up:active {
+    color: #0e6252;
+}
+.community .comments-container .voting .down:before {
+    content: "\60"}
+.community .comments-container .voting .down:hover, .community .comments-container .voting .down.active {
+    color: #be6666;
+}
+.community .comments-container .voting .down:active {
+    color: #853939;
+}
+.community .comments-container .voting .sup.downvoted, .community .comments-container .voting .sup.upvoted {
+    font-weight: bold;
+}
+.community .comments-container .voting .sup.downvoted {
+    color: #be6666;
+}
+.community .comments-container .voting .sup.upvoted {
+    color: #1abc9c;
+}
+.community .comment-edit {
+    height: 145px;
+}
+.community .comment-edit #comment_content {
+    height: 100px;
+    min-height: 0;
+    width: 100%}
+.community .comment-edit .comment-reply-footer {
+    line-height: 30px;
+    padding-top: 5px;
+    position: relative;
+}
+.community .comment-edit .comment-reply-footer a {
+    color: #5f5f5f;
+    text-decoration: underline;
+}
+.community .comment-edit .comment-reply-footer a:hover {
+    color: #4b4b4b;
+}
+.community .comment-edit .comment-reply-footer .cancel {
+    float: right;
+    padding: 0 18px;
+}
+.community .comment-edit .comment-reply-footer .btn {
+    padding: 6px 18px;
+    float: right;
+}
+.community .comment-edit .comment-reply-footer .btn[data-loading] {
+    padding-left: 56px;
+}
+.community .comment-reply {
+    height: 195px;
+    margin-top: 40px;
+    position: relative;
+}
+.community .comment-reply .comment-reply-side {
+    float: left;
+    width: 187.5px;
+}
+.community .comment-reply .comment-reply-side .identity-avatar {
+    display: block !important;
+    margin-right: 0;
+    border: none;
+}
+.community .comment-reply form {
+    padding-bottom: 5px;
+    padding-right: 5px;
+    overflow: hidden;
+}
+.community .comment-reply textarea {
+    display: block;
+    height: 120px;
+    padding: 10px;
+    width: 100%;
+    border: 2px #ddd solid;
+}
+.community .comment-reply textarea:focus {
+    box-shadow: none;
+    border-color: #c2c2c2 !important;
+}
+.community .comment-reply .comment-reply-footer {
+    line-height: 30px;
+    padding-top: 5px;
+}
+.community .comment-reply .comment-reply-footer a {
+    color: #5f5f5f;
+    text-decoration: underline;
+}
+.community .comment-reply .comment-reply-footer a:hover {
+    color: #4b4b4b;
+}
+.community .comment-reply .comment-reply-footer .cancel {
+    float: right;
+    padding: 0 18px;
+}
+.community .comment-reply .comment-reply-footer .btn {
+    padding: 6px 18px;
+    float: right;
+}
+.community .comment-reply .comment-reply-footer .btn[data-loading] {
+    padding-left: 56px;
+}
+.community .comment-reply .comment-posting {
+    background: white;
+    height: 100%;
+    left: 0;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    width: 100%}
+.community #report-modal .modal-body {
+    background: white;
+}
+form.new_comment .awesome-button {
+    font-weight: 300;
+    margin-top: -4px;
+}
+* {
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    -ms-background-clip: padding-box;
+    -o-background-clip: padding-box;
+}
+.contextual-comment-icon {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-family: 'icomoon';
+    font-size: 22px;
+    opacity: 0.4;
+    position: absolute;
+    right: -35px;
+    top: 3px;
+}
+.contextual-comment-icon .count {
+    color: white;
+    display: block;
+    font-family: "proxima-nova",  'Helvetica Neue',  Helvetica,  Arial,  sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 22px;
+    position: relative;
+    left: 0;
+    text-align: center;
+    top: -25px;
+    width: 22px;
+}
+.contextual-comment-icon:hover, .contextual-comment-icon.active {
+    opacity: 1;
+}
+.contextual-comment-icon.active {
+    color: #71a3ad;
+}
+h1 .contextual-comment-icon {
+    top: 14px;
+}
+h1 .contextual-comment-icon .count {
+    top: -26px;
+}
+.article-container article article h1 .contextual-comment-icon {
+    top: 10px;
+}
+.article-container article article h1 .contextual-comment-icon .count {
+    top: -31px;
+}
+.article-container ul .contextual-comment-icon .count {
+    top: -23px;
+}
+.contextual-comment-container {
+    -webkit-transition: opacity 0.25s ease-out;
+    -moz-transition: opacity 0.25s ease-out;
+    -ms-transition: opacity 0.25s ease-out;
+    -o-transition: opacity 0.25s ease-out;
+    transition: opacity 0.25s ease-out;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+    display: block;
+    font-size: 12px;
+    overflow-y: hidden;
+    width: 100%;
+    opacity: 0;
+    height: 0;
+}
+.contextual-comment-container.active {
+    height: auto;
+    margin: 20px 0;
+    opacity: 1;
+    padding: 20px;
+}
+.contextual-comment-container .identity-avatar {
+    background-size: 30px 30px;
+    border: 0;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+}
+.contextual-comment-container ul {
+    list-style: none;
+    margin: 0 !important;
+    padding: 10px 0;
+}
+.contextual-comment-container ul li {
+    border-bottom: 1px solid #D8D7D5;
+    list-style: none !important;
+    font-size: 14px !important;
+    margin: 0 0 15px 0 !important;
+    padding: 0 15px 15px 0;
+}
+.contextual-comment-container ul li.edit {
+    padding-right: 0;
+}
+.contextual-comment-container ul li.edit .cancel {
+    color: #b8b8b8;
+    display: inline-block;
+    margin: 6px 0 0 20px;
+}
+.contextual-comment-container ul li.edit .cancel:hover {
+    color: #9f9f9f;
+}
+.contextual-comment-container ul li .context-comment-header {
+    color: #9f9f9f;
+    display: block;
+    margin: 0 0 5px 0;
+    width: 100%}
+.contextual-comment-container ul li .context-comment-content {
+    line-height: 1.25;
+    overflow: hidden;
+}
+.contextual-comment-container .comment-controls {
+    padding-top: 10px;
+}
+.contextual-comment-container .new-contextual-comment textarea {
+    border: 1px solid #D8D7D5;
+    font-size: 14px;
+    height: 80px;
+    width: 100%}
+.contextual-comment-container .new-contextual-comment textarea:focus {
+    border-color: #b3b1ad;
+    box-shadow: none;
+}
+.contextual-comment-container .new-contextual-comment .awesome-button {
+    float: right;
+    font-size: 13px;
+    padding: 6px 15px;
+}
+.contextual-comment-container .new-contextual-comment .awesome-button.login {
+    float: none;
+    width: 100%;
+    text-align: center;
+}
+.community aside.sidebar section {
+    border-bottom: 1px solid #b3afa6;
+    padding: 15px 0;
+}
+.community aside.sidebar section label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.community select.gray {
+    color: #9c9c9c;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    position: relative;
+    bottom: 2px;
+}
+.community aside.sidebar .tag {
+    padding: 0 10px 4px;
+    position: relative;
+}
+.community aside.sidebar .tag a:first-child:before {
+    content: 't';
+    display: block;
+    float: left;
+    font-family: 'icomoon';
+    font-size: 10px;
+    font-weight: normal;
+    left: -10px;
+    position: relative;
+}
+.community aside.sidebar .tag a.clear-topic {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    background: #8d8686;
+    border-radius: 50%;
+    color: #fff !important;
+    float: right;
+    font-family: 'icomoon';
+    font-size: 6px;
+    font-weight: normal;
+    line-height: 17px;
+    position: relative;
+    text-align: center;
+    top: 3px;
+    width: 17px;
+}
+.community aside.sidebar .tag:hover a.clear-topic {
+    background: #595454;
+}
+.community aside.sidebar .tag:hover a.clear-topic:hover {
+    background: #fff;
+    color: #595454 !important;
+}
+.community .title-edit {
+    position: relative;
+}
+.community #code_question_title, .community #discussion_title, .community #article_title {
+    padding-right: 50px;
+}
+.community .title-remaining-chars {
+    right: 20px;
+    position: absolute;
+    top: 10px;
+}
+.community .error+.title-remaining-chars {
+    top: 34px;
+}
+section.sort-discussions {
+    border-top: 1px solid #b3afa6;
+    margin-top: 15px;
+}
+section.sort-discussions .white-select {
+    width: 90%}
+#comment {
+    margin-bottom: 0;
+}
+* {
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    -ms-background-clip: padding-box;
+    -o-background-clip: padding-box;
+}
+.community.history .box {
+    margin-top: 60px;
+}
+.community.history .history-container {
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+    padding: 60px 120px 0;
+}
+.community.history .history-tree {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.community.history .history-tree:before {
+    background: #ebebeb;
+    content: '';
+    display: block;
+    height: 100%;
+    margin-left: 200px;
+    position: absolute;
+    width: 2px;
+    z-index: 0;
+}
+.community.history .history-tree .history-author {
+    display: inline-block;
+    float: left;
+    font-weight: 600;
+    line-height: 65px;
+    padding-right: 20px;
+    text-align: right;
+    width: 170px;
+}
+.community.history .history-tree .history-entry {
+    zoom: 1;
+    margin-bottom: 75px;
+    max-width: 660px;
+    position: relative;
+    z-index: 9;
+}
+.community.history .history-tree .history-entry:before, .community.history .history-tree .history-entry:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+.community.history .history-tree .history-entry:after {
+    clear: both;
+}
+.community.history .history-tree .history-entry h3 {
+    font-size: 1.5em;
+    font-style: italic;
+    font-weight: normal;
+    margin: 0;
+}
+.community.history .history-tree .history-entry:last-child {
+    margin-bottom: 0;
+}
+.community.history .history-tree .history-entry:last-child .identity-avatar, .community.history .history-tree .history-entry:last-child .history-content {
+    position: relative;
+    z-index: 2;
+}
+.community.history .history-tree .history-entry:last-child .history-content {
+    background: white;
+    left: -40px;
+    padding-left: 50px;
+    padding-bottom: 60px;
+    z-index: 1;
+}
+.community.history .history-tree .history-entry:hover .bar-holder {
+    opacity: 1;
+}
+.community.history .history-tree .identity-avatar {
+    background: #fff;
+    border: 4px #fff solid;
+    background-size: 55px 55px !important;
+}
+.community.history .history-tree .bar-holder {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    background: #ec6161;
+    height: 5px;
+    margin: 5px 0 10px;
+    opacity: 0.5;
+    width: 100px;
+}
+.community.history .history-tree .bar-holder .additions {
+    background: #55bc92;
+    height: 5px;
+}
+.community.history .history-tree .bar-holder+h3 {
+    margin-top: 5px;
+}
+.community.history .history-tree .history-content {
+    overflow: hidden;
+    padding-left: 10px;
+    padding-top: 21px;
+}
+.community.history .history-tree .history-content a.changes:hover {
+    text-decoration: underline;
+}
+* {
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    -ms-background-clip: padding-box;
+    -o-background-clip: padding-box;
+}
+.animated {
+    -webkit-animation-duration: 1.5s;
+    -moz-animation-duration: 1.5s;
+    -o-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+@-webkit-keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+}
+}@-moz-keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    -moz-transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+}
+}@-o-keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    -o-transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    -o-transform: translateY(0);
+}
+}@keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    transform: translateY(0);
+}
+}.animated.fadeIn {
+    -webkit-animation-name: fadeIn;
+    -moz-animation-name: fadeIn;
+    -o-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+@-webkit-keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+}
+}@-moz-keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    -moz-transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+}
+}@-o-keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    -o-transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    -o-transform: translateY(0);
+}
+}@keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    transform: translateY(0);
+}
+}.intro .box:first-child {
+    margin-top: 25px;
+}
+.intro .box {
+    margin: 0 0 10px 0;
+}
+.intro header.box {
+    padding: 0;
+    background-color: #43525a;
+    color: #fff;
+    text-align: center;
+    -webkit-border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+    margin-top: 25px;
+}
+.intro header.box>div {
+    padding: 0;
+}
+.intro header.box #ri-grid .col {
+    width: 5%;
+    float: left;
+}
+.intro header.box #ri-grid .col div {
+    background-size: cover !important;
+    opacity: 0.7;
+}
+.intro header.box #ri-grid .col div img {
+    width: 100%}
+.intro header.box #ri-grid .col div img:first-child {
+    -webkit-border-radius: 3px 0 0 0;
+    -moz-border-radius: 3px 0 0 0;
+    border-radius: 3px 0 0 0;
+}
+.intro header.box #ri-grid .col div img:last-child {
+    -webkit-border-radius: 0 0 0 3px;
+    -moz-border-radius: 0 0 0 3px;
+    border-radius: 0 0 0 3px;
+}
+.intro header.box #ri-grid .col div:hover {
+    opacity: 0.9 !important;
+    -webkit-transition: 0.15s ease-in-out;
+}
+.intro header.box a {
+    color: #E7C46C;
+}
+.intro header.box a:hover {
+    color: #cc9b21;
+}
+.intro header.box p {
+    max-width: 740px;
+    margin: 0 auto 50px;
+    color: #fff;
+}
+.intro header.box .intro-copy {
+    text-align: center;
+    padding: 65px 0;
+    background-color: #fff;
+    color: #818f98;
+}
+.intro header.box .intro-copy h2 {
+    font-weight: 300;
+    margin-top: 0;
+}
+.intro header.box .intro-copy a {
+    color: #2e8bcc;
+}
+.intro header.box .intro-copy p {
+    color: #818f98;
+    margin: 0 auto;
+    max-width: 715px;
+}
+.intro .setup-wrapper {
+    -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    min-height: 464px;
+    padding: 50px 0;
+    margin: 0 auto;
+}
+.intro .setup-wrapper .step {
+    display: none;
+    border-bottom: 0;
+}
+.intro .setup-wrapper section.active {
+    background: transparent;
+}
+.intro .setup-wrapper .setup-header {
+    text-align: center;
+    font-size: 24px;
+    color: #818f98;
+    font-weight: 100;
+}
+.intro .setup-wrapper ul {
+    display: inline-block;
+    color: #818f98;
+}
+.intro .setup-wrapper ul li {
+    line-height: 8px;
+    font-weight: 400;
+}
+.intro .setup-wrapper ul li span {
+    display: table-cell;
+}
+.intro .setup-wrapper ul li span:first-of-type {
+    padding-right: 20px;
+}
+.intro .setup-wrapper ul li span:last-of-type {
+    text-align: right;
+    padding-left: 20px;
+}
+.intro .setup-wrapper ul li span a {
+    font-size: 13px;
+}
+.intro .setup-wrapper ul .dots {
+    width: 230px;
+    position: relative;
+    bottom: 5px;
+    border-bottom: 1px dotted #ccc;
+}
+.intro .setup-wrapper ul .one {
+    width: 210px;
+}
+.intro .setup-wrapper ul .two {
+    width: 204px;
+}
+.intro .setup-wrapper ul .three {
+    width: 258px;
+}
+.intro .setup-wrapper ul .four {
+    width: 160px;
+}
+.intro .box {
+    background-color: #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.intro .community-module {
+    padding: 65px 55px;
+}
+.intro .community-module .wrapper {
+    max-width: 700px;
+    min-width: 700px;
+    margin: 0 auto;
+}
+.intro .community-module .wrapper:hover .avatar {
+    color: #C5C5C5;
+}
+.intro .community-module .wrapper:hover .discussions {
+    color: #797c8c;
+}
+.intro .community-module .wrapper:hover .code {
+    color: #75c4a3;
+}
+.intro .community-module .wrapper:hover .learning {
+    color: #72a4ae;
+}
+.intro .community-module .icon, .intro .community-module .module-summary {
+    display: table-cell;
+}
+.intro .community-module .module-summary {
+    border-left: 1px #ebebeb solid;
+    padding-left: 60px;
+}
+.intro .community-module .icon {
+    font-size: 80px;
+    color: #ededed;
+    vertical-align: middle;
+    padding-right: 60px;
+    -webkit-transition: all 0.6s ease-in-out;
+    -moz-transition: all 0.6s ease-in-out;
+    -ms-transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
+    transition: all 0.6s ease-in-out;
+}
+.intro .community-module h3 a {
+    font-size: 24px;
+    color: #818f98;
+    font-weight: 100;
+}
+.intro .community-module h3 a:hover {
+    color: #515b62;
+}
+.intro .community-module h3 a:hover span {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    padding-left: 5px;
+}
+.intro .right .module-summary {
+    border-right: 1px #ebebeb solid;
+    padding-right: 60px;
+    border-left: 0;
+    padding-left: 0;
+}
+.intro .right .icon {
+    padding-left: 60px;
+    padding-right: 0;
+}
+@-webkit-keyframes fade {
+    0% {
+    opacity: 1;
+}
+45% {
+    opacity: 0;
+}
+75% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}@keyframes fade {
+    0% {
+    opacity: 1;
+}
+45% {
+    opacity: 0;
+}
+75% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}code[class*="language-"], pre[class*="language-"] {
+    color: black;
+    text-shadow: 0 1px white;
+    font-family: Consolas,  Monaco,  'Andale Mono',  monospace;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection, code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection, code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+@media print {
+    code[class*="language-"], pre[class*="language-"] {
+    text-shadow: none;
+}
+}pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+:not(pre)>code[class*="language-"], pre[class*="language-"] {
+    background: #f5f2f0;
+}
+:not(pre)>code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+}
+.token.comment, .token.prolog, .token.doctype, .token.cdata {
+    color: slategray;
+}
+.token.punctuation {
+    color: #999;
+}
+.namespace {
+    opacity: .7;
+}
+.token.property, .token.tag, .token.boolean, .token.number, .token.constant, .token.symbol {
+    color: #905;
+}
+.token.selector, .token.attr-name, .token.string, .token.builtin {
+    color: #690;
+}
+.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string, .token.variable {
+    color: #a67f59;
+    background: rgba(255, 255, 255, 0.5);
+}
+.token.atrule, .token.attr-value, .token.keyword {
+    color: #07a;
+}
+.token.regex, .token.important {
+    color: #e90;
+}
+.token.important {
+    font-weight: bold;
+}
+.token.entity {
+    cursor: help;
+}
+* {
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    -ms-background-clip: padding-box;
+    -o-background-clip: padding-box;
+}
+#identity {
+    font-size: 16px;
+    line-height: 24px;
+}
+#identity header {
+    background-color: #8d8e97;
+    color: #fff;
+    min-height: 148px;
+    border-bottom: 3px #7e7e85 solid;
+    -webkit-border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+}
+#identity header h2 {
+    font-size: 24px;
+    margin: 0;
+    position: relative;
+    left: 316px;
+    top: 90px;
+}
+#identity header h2 a.handle {
+    border: 2px solid #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: 400;
+    margin-left: 10px;
+    position: relative;
+    bottom: 2px;
+}
+#identity header h2 a.handle:hover {
+    background-color: #fff;
+    color: #818f98;
+}
+#identity .box {
+    background-color: #fff;
+    -webkit-border-radius: 0 0 3px 3px;
+    -moz-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
+    margin-top: 60px;
+    overflow: hidden;
+}
+#identity aside {
+    width: 295px;
+    float: left;
+    -webkit-border-radius: 0 0 0 3px;
+    -moz-border-radius: 0 0 0 3px;
+    border-radius: 0 0 0 3px;
+}
+#identity aside .circular-avatar {
+    width: 200px;
+    height: 200px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    border-radius: 150px;
+    background: url("/assets/default-profile-avatar.jpg") no-repeat;
+    position: relative;
+    bottom: 100px;
+    border: 3px #fff solid;
+    margin: 0 auto;
+}
+#identity aside .avatar-info {
+    position: relative;
+    bottom: 70px;
+    padding: 0 36px;
+}
+#identity aside .avatar-info ul {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 19px;
+    color: #999ba3;
+    font-weight: 600;
+}
+#identity aside .avatar-info ul li {
+    float: left;
+    list-style-type: none;
+}
+#identity aside .avatar-info ul.metadata li {
+    width: 100%}
+#identity aside .avatar-info ul.metadata li strong {
+    font-size: 14px;
+}
+#identity aside .avatar-info ul.social {
+    margin-top: 26px;
+}
+#identity aside .avatar-info ul.social li {
+    padding-right: 10px;
+    font-size: 18px;
+}
+#identity aside .avatar-info ul.social li a {
+    text-decoration: none;
+    color: #8d8e97;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+#identity aside .avatar-info ul.social li .twitter, #identity aside .avatar-info ul.social li .dribbble, #identity aside .avatar-info ul.social li .linkedin, #identity aside .avatar-info ul.social li .plus {
+    font-family: 'icomoon'}
+#identity aside .avatar-info ul.social li .twitter:hover, #identity aside .avatar-info ul.social li .dribbble:hover, #identity aside .avatar-info ul.social li .linkedin:hover, #identity aside .avatar-info ul.social li .plus:hover {
+    color: #a8a8af;
+}
+#identity aside .avatar-info ul.social li .twitter:before {
+    content: "\62"}
+#identity aside .avatar-info ul.social li .dribbble:before {
+    content: "\69"}
+#identity aside .avatar-info ul.social li .linkedin:before {
+    content: "\6a"}
+#identity aside .avatar-info ul.social li .plus:before {
+    content: "\68"}
+#identity article {
+    overflow: auto;
+    border-left: 1px #dfdfdf solid;
+    min-height: 600px;
+}
+#identity article section {
+    padding: 30px 0;
+}
+#identity article section:first-child {
+    padding: 30px 0 0 0;
+}
+#identity article section p {
+    color: #818f98;
+    margin: 0;
+}
+#identity article section p, #identity article section ul {
+    padding: 0 30px;
+}
+#identity article section h4 {
+    margin: 0 30px 30px;
+    border-bottom: 1px #dfdfdf solid;
+    padding-bottom: 10px;
+}
+#identity article section ul.activity-stream li {
+    line-height: 30px;
+    padding-bottom: 15px;
+}
+#identity article section ul.activity-stream li .discussions {
+    color: #797c8c;
+}
+#identity article section ul.activity-stream li .code {
+    color: #72b087;
+}
+#identity article section ul.activity-stream li .icon {
+    float: left;
+    padding-right: 30px;
+    width: 5%}
+#identity article section ul.activity-stream li div {
+    display: inline-block;
+    line-height: 20px;
+    width: 90%}
+#identity article section ul.activity-stream li div a {
+    font-weight: 600;
+}
+#identity article section ul.activity-stream li div .time {
+    display: block;
+    font-size: 12px;
+    color: #cecece;
+}
